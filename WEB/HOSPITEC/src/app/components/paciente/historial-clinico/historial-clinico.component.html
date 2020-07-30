@@ -7,42 +7,28 @@
       <thead>
         <tr>
           <th scope="col">ID</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Apellidos</th>
-          <th scope="col">Cedula</th>
-          <th scope="col">Fecha Nacimiento</th>
-          <th scope="col">Telefono</th>
-          <th scope="col">Direccion</th>
+          <th scope="col">Cedula Paciente</th>
+          <th scope="col">Cedula Encargado</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Procedimiento</th>
           <th scope="col">Tratamiento</th>
-          <th scope="col">Patologias</th>
-          <th scope="col">Editar/Eliminar</th>
         </tr>
       </thead>
       <tbody>
 
         <tr *ngFor="let item of historialList">
-          <th scope="row">{{ item.idPaciente }}</th>
-          <td>{{ item.nombre }}</td>
-          <td>{{ item.apellidos }}</td>
-          <td>{{ item.cedula }}</td>
-          <td>{{ item.naciemiento }}</td>
-          <td>{{ item.telefono }}</td>
-          <td>{{ item.direccion }}</td>
+          <th scope="row">{{ item.idHistorial }}</th>
+          <td>{{ item.cedulaPaciente }}</td>
+          <td>{{ item.cedulaPersonal }}</td>
+          <td>{{ item.fecha }}</td>
+          <td>{{ item.procedimientoMedico }}</td>
           <td>{{ item.tratamiento }}</td>
-          <td>{{ item.patologias }}</td>
-          <td>
-            <a data-toggle="modal" id="getModifyData" href="#" data-target="#edit" class="editTable">Editar</a>
-            <a data-toggle="modal" id="getDeleteData" href="#" data-target="#delete">Eliminar</a>
-          </td>
 
         </tr>
       </tbody>
     </table>
-    <button class="btn btn-dark" data-toggle="modal" data-target="#create">Agregar paciente</button>
   </div>
 
-  <button type="button" class="btn btn-dark btn-primary-spacing" btn-sm> Ingresar</button>
-  <button type="button" class="btn btn-dark btn-primary-spacing" btn-sm> Modificar</button>
-  <button type="button" class="btn btn-dark btn-primary-spacing" btn-sm> Eliminar</button>
+  <button type="button" class="btn btn-dark btn-primary-spacing" btn-sm routerLink="/paciente"> Atrás</button>
 
 </form>

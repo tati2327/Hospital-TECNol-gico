@@ -16,6 +16,8 @@ import { HistorialClinicoComponent } from './components/paciente/historial-clini
 import { EvaluacionServicioComponent } from './components/paciente/evaluacion-servicio/evaluacion-servicio.component';
 import { CrearComponent } from './components/paciente/paciente/crear/crear.component';
 import { ModificarComponent } from './components/paciente/paciente/modificar/modificar.component';
+import { CrearReservacionComponent } from './components/paciente/reservacion/crear-reservacion/crear-reservacion.component';
+import { ModificarReservacionComponent } from './components/paciente/reservacion/modificar-reservacion/modificar-reservacion.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { ModificarComponent } from './components/paciente/paciente/modificar/mod
     HistorialClinicoComponent,
     EvaluacionServicioComponent,
     CrearComponent,
-    ModificarComponent
+    ModificarComponent,
+    CrearReservacionComponent,
+    ModificarReservacionComponent
   ],
   imports: [
     BrowserModule,

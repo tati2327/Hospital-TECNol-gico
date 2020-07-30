@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'medical-equipment', component: MedicalEquipmentComponent },
   { path: 'paciente', component: PacienteComponent },
   { path: 'reservacion', component: ReservacionComponent },
-  { path: 'historial', component: ReservacionComponent },
+  { path: 'historial', component: HistorialClinicoComponent },
   { path: 'evaluacion', component: EvaluacionServicioComponent }
 ];
 
