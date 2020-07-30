@@ -10,6 +10,10 @@ import { FooterComponent } from './components/sharedComponents/footer/footer.com
 import { LoginComponent } from './components/sharedComponents/login/login.component';
 import { NavComponent } from './components/sharedComponents/nav/nav.component';
 import { HomepageComponent } from './components/sharedComponents/homepage/homepage.component';
+import { PacienteComponent } from './components/paciente/paciente/paciente.component';
+import { ReservacionComponent } from './components/paciente/reservacion/reservacion.component';
+import { HistorialClinicoComponent } from './components/paciente/historial-clinico/historial-clinico.component';
+import { EvaluacionServicioComponent } from './components/paciente/evaluacion-servicio/evaluacion-servicio.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { HomepageComponent } from './components/sharedComponents/homepage/homepa
     FooterComponent,
     LoginComponent,
     NavComponent,
-    HomepageComponent
+    HomepageComponent,
+    PacienteComponent,
+    ReservacionComponent,
+    HistorialClinicoComponent,
+    EvaluacionServicioComponent
   ],
   imports: [
     BrowserModule,

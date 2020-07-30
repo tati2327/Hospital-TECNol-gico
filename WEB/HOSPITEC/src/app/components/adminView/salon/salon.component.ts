@@ -12,6 +12,8 @@ export class SalonComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+
   /*ingresar(nameProduct, barCode, nameSeller, productDescrip, price, impuesto, descuento) {
     this.producto.ingresar(nameProduct.value, barCode.value, nameSeller.value, productDescrip.value, price.value, impuesto.value, descuento.value);
 
