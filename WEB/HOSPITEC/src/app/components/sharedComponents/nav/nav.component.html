@@ -1,0 +1,59 @@
+<div class="nav d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 shadow-sm">
+  <h5 class="my-0 mr-md-auto fg font-weight-strong">
+    Hospital TECNológico
+  </h5>
+
+  <nav class="my-2 my-md-0 mr-md-3 navBar">
+
+    <div class="row">
+
+    <div>
+      <button class="btn btn-dark menus" type="button" routerLink="/">Home</button>
+    </div>
+
+    <div class="dropdown extra menus">
+      <button class="btn btn-secondary dropdown-toggle menus" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Personal Administrativo
+      </button>
+      <div class="dropdown-menu menus" aria-labelledby="dropdownMenu2">
+        <button class="dropdown-item menus" type="button" routerLink="/salon">Gestion de Salones</button>
+        <button class="dropdown-item menus" type="button" routerLink="/medical-equipment">Gestion de Equipo Médico</button>
+        <button class="dropdown-item menus" type="button" routerLink="/patientState">Gestion de Camas</button>
+        <button class="dropdown-item menus" type="button" routerLink="/hospitalCenter">Gestion de Procedimientos Médicos</button>
+        <button class="dropdown-item menus" type="button" routerLink="/measurements">Gestión de Personal</button>
+        <button class="dropdown-item menus" type="button" routerLink="/medicine">Sincronizar con COTEC-2020</button>
+        <button class="dropdown-item menus" type="button" routerLink="/medicine">Reporte Áreas de Mejora</button>
+
+      </div>
+    </div>
+
+    <div class="dropdown extra">
+      <button class="btn btn-secondary dropdown-toggle menus" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Paciente
+      </button>
+      <div class="dropdown-menu menus" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item menus" routerLink="/patient">Crear Cuenta</a>
+        <a class="dropdown-item menus" routerLink="/recentContacts">Crear Reservación</a>
+        <a class="dropdown-item menus" routerLink="/reports">Ver Historial Clínico</a>
+        <a class="dropdown-item menus" routerLink="/reports">Evaluar Servicio Recibido</a>
+      </div>
+    </div>
+
+    <div class="dropdown extra">
+      <button class="btn btn-secondary dropdown-toggle menus" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Doctor
+      </button>
+      <div class="dropdown-menu menus" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item menus" routerLink="/patient">Agregar Paciente</a>
+        <a class="dropdown-item menus" routerLink="/recentContacts">Agregar Historial Clínico</a>
+      </div>
+    </div>
+
+    <div>
+      <a class="btn btn-outline-secondary btn-register"  routerLink="/login">Login</a>
+    </div>
+
+  </div>
+
+  </nav>
+</div>
