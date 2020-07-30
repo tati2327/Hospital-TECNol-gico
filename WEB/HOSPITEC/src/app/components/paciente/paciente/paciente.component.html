@@ -1,25 +1,116 @@
 <p>paciente works!</p>
-<h3>Gestión de Equipo Médico</h3>
-<form>
-  <div class="form-group">
-    <div class="form-group col-md-4">
-      <label for="salonNumber">Nombre del Equipo Médico</label>
-      <input type="number" class="form-control" #salonNumber>
-    </div>
-    <div class="form-group col-md-4">
-      <label for="salonName">Nombre del Proveedor</label>
-      <input type="text" class="form-control" #salonName>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="form-group col-md-3">
-      <label for="bedsCapacity">Cantitad Disponible</label>
-      <input type="number" class="form-control" #bedsCapacity>
-    </div>
-  </div>
+<h3>Ingreso de Pacientes</h3>
 
-  <button type="button" class="btn btn-dark btn-primary-spacing" btn-sm> Ingresar</button>
-  <button type="button" class="btn btn-dark btn-primary-spacing" btn-sm> Modificar</button>
-  <button type="button" class="btn btn-dark btn-primary-spacing" btn-sm> Eliminar</button>
+<div id="content" #content>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellidos</th>
+        <th scope="col">Cedula</th>
+        <th scope="col">Fecha Nacimiento</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Direccion</th>
+        <th scope="col">Tratamiento</th>
+        <th scope="col">Patologias</th>
+        <th scope="col">Editar/Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let item of patientsList">
+        <th scope="row">{{ item.idPaciente }}</th>
+        <td>{{ item.nombre }}</td>
+        <td>{{ item.apellidos }}</td>
+        <td>{{ item.cedula }}</td>
+        <td>{{ item.naciemiento }}</td>
+        <td>{{ item.telefono }}</td>
+        <td>{{ item.direccion }}</td>
+        <td>{{ item.tratamiento }}</td>
+        <td>{{ item.patologias }}</td>
+        <td>
+          <a data-toggle="modal" id="getModifyData" href="#" data-target="#edit" class="editTable">Editar</a>
+          <a data-toggle="modal" id="getDeleteData" href="#" data-target="#delete">Eliminar</a>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-dark" data-toggle="modal" data-target="#create">Agregar paciente</button>
+</div>
+
+<!--Modal para crear un nuevo paciente-->
+<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Paciente</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-crear></app-crear>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" id="sendCreatedPatient" data-dismiss="modal">Agregar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--Modal para modificar un paciente-->
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Paciente</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-modificar></app-modificar>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" id="sendModifiedPatient" data-dismiss="modal">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal para eliminar un paciente-->
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Eliminar patologia</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-danger" role="alert">
+          ¿Está seguro?
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="deletePatient" data-dismiss="modal">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form>
+
+
+  <button type="button" class="btn btn-dark btn-primary-spacing" btn-sm routerLink="/reservacion"> Reservar</button>
+  <button type="button" class="btn btn-dark btn-primary-spacing" btn-sm routerLink="/historial"> Ver Historial Clínico</button>
+  <button type="button" class="btn btn-dark btn-primary-spacing" btn-sm routerLink="/evaluacion"> Evaluar Servicio</button>
 
 </form>

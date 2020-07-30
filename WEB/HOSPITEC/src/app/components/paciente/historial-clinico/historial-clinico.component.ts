@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./historial-clinico.component.css']
 })
 export class HistorialClinicoComponent implements OnInit {
-
+  historialList = [];
   constructor() { }
 
   ngOnInit(): void {
