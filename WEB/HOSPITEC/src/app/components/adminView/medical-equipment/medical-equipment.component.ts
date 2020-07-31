@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./medical-equipment.component.css']
 })
 export class MedicalEquipmentComponent implements OnInit {
+  
+  listaEquipoMedico=[];
 
   constructor() { }
 

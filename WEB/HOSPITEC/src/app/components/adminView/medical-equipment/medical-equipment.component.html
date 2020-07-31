@@ -1,24 +1,68 @@
-<h3>Gestión de Equipo Médico</h3>
-<form>
-  <div class="form-group">
-    <div class="form-group col-md-4">
-      <label for="salonNumber">Nombre del Equipo Médico</label>
-      <input type="number" class="form-control" #salonNumber>
+<div class="container-fluid"> 
+  <div class="row">
+
+    <div class="container col-md-6" >
+      <div class="mystyle" >
+        <div class="col-md-auto">
+          <h3>Gestión de Equipo Médico</h3>
+
+          <form>
+            <div class="form-group col-md-03">
+              <div class="form-group col-md-auto">
+                <label for="nombreEquipo">Nombre del Equipo Médico</label>
+                <input type="text" class="form-control" #nombreEquipo>
+              </div>
+              <div class="form-group col-md-auto">
+                <label for="proveedor">Nombre del Proveedor</label>
+                <input type="text" class="form-control" #proveedor>
+              </div>
+            </div>
+            <div class="form-group col-md-auto">
+              <div class="form-group ">
+                <label for="cantEquipo">Cantitad Disponible</label>
+                <input type="number" class="form-control" #cantEquipo>
+              </div>
+            </div>
+
+            <div class="form-group col-md-auto">
+              <button type="button" class="btn btn-dark btn-primary-spacing" btn-sm> Ingresar</button>
+              <button type="button" class="btn btn-dark btn-primary-spacing" btn-sm> Modificar</button>
+              <button type="button" class="btn btn-dark btn-primary-spacing" btn-sm> Eliminar</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-    <div class="form-group col-md-4">
-      <label for="salonName">Nombre del Proveedor</label>
-      <input type="text" class="form-control" #salonName>
+
+    <div class="container col-md-6" id="content" #content>
+      <div class="mystyle">
+        <h3 class="h3">Equipo Médico</h3>
+        <table class="table table-hover table-striped text"  data-pagination="true" id="makeEditable">
+          <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Proveedor</th>
+                <th scope="col">Cantidad</th>
+              </tr>
+          </thead>
+          <tbody>
+      
+            <tr *ngFor="let item of listaEquipoMedico">
+              <th scope="row">{{ item.id }}</th>
+              <td>{{ item.name }}</td>
+              <td>{{ item.description }}</td>
+              <td>{{ item.symptoms }}</td>
+              <td>{{ item.treatment }}</td>
+              <td><a  data-toggle="modal" href="#" id="getModifyData" data-target="#edit" class="editTable">Editar</a>
+              <a  data-toggle="modal" href="#" id="getDeleteData" data-target="#delete" >Eliminar</a>
+            </td>
+          </tr>
+          </tbody>
+        </table>    
+        </div>
     </div>
   </div>
-  <div class="form-group">
-    <div class="form-group col-md-3">
-      <label for="bedsCapacity">Cantitad Disponible</label>
-      <input type="number" class="form-control" #bedsCapacity>
-    </div>
-  </div>
+</div>
 
-  <button type="button" class="btn btn-dark btn-primary-spacing" btn-sm> Ingresar</button>
-  <button type="button" class="btn btn-dark btn-primary-spacing" btn-sm> Modificar</button>
-  <button type="button" class="btn btn-dark btn-primary-spacing" btn-sm> Eliminar</button>
 
-</form>

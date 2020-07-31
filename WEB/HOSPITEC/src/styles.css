@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    background-color: #F0EBD8;
+}
+
+.richBlack{
+    color: #0D1321;
+}
+
+.prussianBlue{
+    color: #1D2D44;
+}
+
+.blackCoral{
+    color: #3E5C76;
+}
+
+.shadowBlue{
+    color: #748CAB;
+}
+
+.eggshell{
+    color: #F0EBD8;
+}

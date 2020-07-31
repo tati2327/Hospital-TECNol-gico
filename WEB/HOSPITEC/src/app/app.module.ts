@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { SalonComponent } from './components/adminView/salon/salon.component';
 import { MedicalEquipmentComponent } from './components/adminView/medical-equipment/medical-equipment.component';
 import { FooterComponent } from './components/sharedComponents/footer/footer.component';
-import { LoginComponent } from './components/sharedComponents/login/login.component';
 import { NavComponent } from './components/sharedComponents/nav/nav.component';
 import { HomepageComponent } from './components/sharedComponents/homepage/homepage.component';
 
@@ -17,7 +16,6 @@ import { HomepageComponent } from './components/sharedComponents/homepage/homepa
     SalonComponent,
     MedicalEquipmentComponent,
     FooterComponent,
-    LoginComponent,
     NavComponent,
     HomepageComponent
   ],
