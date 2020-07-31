@@ -1,0 +1,34 @@
+<p>historial-clinico works!</p>
+<form>
+  <h3>Ingreso de Pacientes</h3>
+
+  <div id="content" #content>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Cedula Paciente</th>
+          <th scope="col">Cedula Encargado</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Procedimiento</th>
+          <th scope="col">Tratamiento</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let item of historialList">
+          <th scope="row">{{ item.idHistorial }}</th>
+          <td>{{ item.cedulaPaciente }}</td>
+          <td>{{ item.cedulaPersonal }}</td>
+          <td>{{ item.fecha }}</td>
+          <td>{{ item.procedimientoMedico }}</td>
+          <td>{{ item.tratamiento }}</td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <button type="button" class="btn btn-dark btn-primary-spacing" btn-sm routerLink="/paciente"> Atrás</button>
+
+</form>

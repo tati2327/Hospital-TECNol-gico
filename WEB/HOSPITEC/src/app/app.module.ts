@@ -9,6 +9,14 @@ import { MedicalEquipmentComponent } from './components/adminView/medical-equipm
 import { FooterComponent } from './components/sharedComponents/footer/footer.component';
 import { NavComponent } from './components/sharedComponents/nav/nav.component';
 import { HomepageComponent } from './components/sharedComponents/homepage/homepage.component';
+import { PacienteComponent } from './components/paciente/paciente/paciente.component';
+import { ReservacionComponent } from './components/paciente/reservacion/reservacion.component';
+import { HistorialClinicoComponent } from './components/paciente/historial-clinico/historial-clinico.component';
+import { EvaluacionServicioComponent } from './components/paciente/evaluacion-servicio/evaluacion-servicio.component';
+import { CrearComponent } from './components/paciente/paciente/crear/crear.component';
+import { ModificarComponent } from './components/paciente/paciente/modificar/modificar.component';
+import { CrearReservacionComponent } from './components/paciente/reservacion/crear-reservacion/crear-reservacion.component';
+import { ModificarReservacionComponent } from './components/paciente/reservacion/modificar-reservacion/modificar-reservacion.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +25,15 @@ import { HomepageComponent } from './components/sharedComponents/homepage/homepa
     MedicalEquipmentComponent,
     FooterComponent,
     NavComponent,
-    HomepageComponent
+    HomepageComponent,
+    PacienteComponent,
+    ReservacionComponent,
+    HistorialClinicoComponent,
+    EvaluacionServicioComponent,
+    CrearComponent,
+    ModificarComponent,
+    CrearReservacionComponent,
+    ModificarReservacionComponent
   ],
   imports: [
     BrowserModule,
