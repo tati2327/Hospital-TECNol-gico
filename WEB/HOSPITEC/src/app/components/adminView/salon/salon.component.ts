@@ -14,7 +14,6 @@ export class SalonComponent implements OnInit {
   ngOnInit(): void {
   }
 
-<<<<<<< HEAD
   /*
   ingresar(nameProduct, barCode, nameSeller, productDescrip, price, impuesto, descuento) {
 =======
