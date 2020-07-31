@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\WEB",
+    "\\WEB\\HOSPITEC",
+    "\\WEB\\HOSPITEC\\src",
+    "\\WEB\\HOSPITEC\\src\\app",
+    "\\WEB\\HOSPITEC\\src\\app\\components",
+    "\\WEB\\HOSPITEC\\src\\app\\components\\paciente",
+    "\\WEB\\HOSPITEC\\src\\app\\models",
+    "\\WEB\\HOSPITEC\\src\\app\\services",
+    "\\WEB\\HOSPITEC\\src\\app\\services\\paciente"
+  ],
+  "SelectedNode": "\\WEB\\HOSPITEC\\src\\app\\services\\paciente\\historial-clinico.service.ts",
+  "PreviewInSolutionExplorer": false
+}
