@@ -6,14 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PacienteService {
-
-
   paciente: Paciente[];
-
 
   constructor(private http: HttpClient) { }
 
-  getEvaluaciones(): Observable<Paciente[]> {
+  getPacientes(): Observable<Paciente[]> {
     return this.http.get<Paciente[]>('http://localhost:8081/api/paciente');
 
   }
