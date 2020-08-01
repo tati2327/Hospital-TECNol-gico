@@ -19,7 +19,6 @@ export class PacienteComponent implements OnInit {
 
 
     var init = this.pacienteService;
-    var primaryKeyToDelete;
 
     this.pacienteService.getPacientes().subscribe((pacientes) => {
       this.patientsList = pacientes;
@@ -54,12 +53,21 @@ export class PacienteComponent implements OnInit {
         var nom = $("#modNombre").val();
         var ape = $("#modApellidos").val();
         var ced = $("#modCedula").val();
-        var tel = $("#modCelefono").val();
+        var tel = $("#modTelefono").val();
         var fecha = $("#modNacimiento").val();
         var dir = $("#modDireccion").val();
         var trat = $("#modTratamiento").val();
         var pat = $("#modPatologias").val();
-        return init.modificar(id, ced, nom, ape, fecha, tel, dir, trat, pat);
+        alert(id)
+        alert(nom);
+        alert(ape);
+        alert(ced);
+        alert(tel);
+        alert(fecha);
+        alert(dir);
+        alert(trat);
+        alert(pat);
+        return /*init.modificar(id, ced, nom, ape, fecha, tel, dir, trat, pat)*/;
       });
     })
 
@@ -73,21 +81,30 @@ export class PacienteComponent implements OnInit {
         var dir = $("#direccion").val();
         var trat = $("#tratamiento").val();
         var pat = $("#patologias").val();
-        return init.sendData(ced, nom, ape, fecha, tel, dir, trat, pat);
+        alert(nom);
+        alert(ape);
+        alert(ced);
+        alert(tel);
+        alert(fecha);
+        alert(dir);
+        alert(trat);
+        alert(pat);
+        return /*init.sendData(ced, nom, ape, fecha, tel, dir, trat, pat)*/;
       });
     })
 
     $(document).ready(function () {
-      $("#getDeleteData").click(function () {
+      $("#Josu").click(function () {
         var $row = $(this).closest("tr");    // Find the row
-        primaryKeyToDelete = $row.find("td:eq(2)").text(); // Find the text
-
+        var primaryKeyToDelete = $row.find("td:eq(0)").text(); // Find the text
+        console.log("a");
+        alert("a");
       });
     })
 
     $(document).ready(function () {
       $("#deletePatient").click(function () {
-        return init.delete(primaryKeyToDelete);
+        return /*init.delete(primaryKeyToDelete)*/;
       });
     })
 
