@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ReservacionService } from 'src/app/services/paciente/reservacion.service';
+import { Reservacion } from 'src/app/models/paciente/reservacion';
+
+import { of } from 'rxjs';
+declare var $: any;
 
 @Component({
   selector: 'app-reservacion',
@@ -6,10 +11,89 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reservacion.component.css']
 })
 export class ReservacionComponent implements OnInit {
-  reservacionList = [];
-  constructor() { }
 
+  constructor(public reservacionService: ReservacionService) { }
+  reservacionList: Reservacion[] = [];
   ngOnInit(): void {
+
+
+    var init = this.reservacionService;
+
+    this.reservacionService.getReservaciones().subscribe((pacientes) => {
+      this.reservacionList = pacientes;
+    })
+
+    /*
+    $(document).ready(function () {
+      $(".editTable").click(function () {
+        var $row = $(this).closest("tr");    // Find the row
+        var col1 = $row.find("td:eq(0)").text(); // Find the text
+        var col2 = $row.find("td:eq(1)").text();
+        var primaryKey = $row.find("td:eq(2)").text();
+        var col4 = $row.find("td:eq(3)").text();
+        var col5 = $row.find("td:eq(4)").text();
+
+        var col9 = $row.find("td:eq(8)").text();
+
+        $("#modifiedName").val(col1);
+        $("#modifiedLastName").val(col2);
+        $("#modifiedId").val(primaryKey);
+        $("#modifiedAge").val(col4);
+        $("#modifiedNationality").val(col5);
+
+        $("#modifiedMedication").val(col9);
+
+      });
+    });*/
+
+    $(document).ready(function () {
+      $("#sendModifiedReservacion").click(function () {
+        var id = $("#id").val();
+        var ced = $("#cedMod").val();
+        var cedp = $("#cedPMod").val();
+        var ing = $("#inMod").val();
+        var sal = $("#salMod").val();
+        var cama = $("#camMod").val();
+        alert(ced);
+        alert(cedp);
+        alert(ing);
+        alert(sal);
+        alert(cama);
+        return /*init.modificar(id, ced,cedp,ing,sal,cama)*/;
+      });
+    })
+
+    $(document).ready(function () {
+      $("#sendCreatedReservacion").click(function () {
+        var ced = $("#cedula").val();
+        var cedp = $("#cedulaPersonal").val();
+        var ing = $("#ingreso").val();
+        var sal = $("#salida").val();
+        var cama = $("#cama").val();
+        alert(ced);
+        alert(cedp);
+        alert(ing);
+        alert(sal);
+        alert(cama);
+        return /*init.sendData(ced,cedp,ing,sal,cama)*/;
+      });
+    })
+
+    $(document).ready(function () {
+      $("#getDeleteData").click(function () {
+        var $row = $(this).closest("tr");    // Find the row
+        var primaryKeyToDelete = $row.find("td:eq(0)").text(); // Find the text
+        console.log("a");
+        alert("a");
+      });
+    })
+
+    $(document).ready(function () {
+      $("#deleteReservacion").click(function () {
+        return /*init.delete(primaryKeyToDelete)*/;
+      });
+    })
+
   }
 
 }

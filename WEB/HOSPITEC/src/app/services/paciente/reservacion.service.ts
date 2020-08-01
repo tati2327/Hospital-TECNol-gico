@@ -14,7 +14,7 @@ export class ReservacionService {
 
   constructor(private http: HttpClient) { }
 
-  getEvaluaciones(): Observable<Reservacion[]> {
+  getReservaciones(): Observable<Reservacion[]> {
     return this.http.get<Reservacion[]>('http://localhost:8081/api/reservacion');
 
   }
@@ -72,4 +72,4 @@ export class ReservacionService {
   }
 }
 
-}
+

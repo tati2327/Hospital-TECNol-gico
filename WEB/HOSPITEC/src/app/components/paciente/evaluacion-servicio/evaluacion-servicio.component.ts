@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { EvaluacionServicioService } from 'src/app/services/paciente/evaluacion-servicio.service';
+import { EvaluacionServicio } from 'src/app/models/paciente/evaluacion-servicio';
+
+import { of } from 'rxjs';
+declare var $: any;
 
 @Component({
   selector: 'app-evaluacion-servicio',
@@ -6,10 +11,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./evaluacion-servicio.component.css']
 })
 export class EvaluacionServicioComponent implements OnInit {
-  
-  constructor() { }
+
+  constructor(public evaluacion: EvaluacionServicioService) { }
 
   ngOnInit(): void {
+
+    $(document).ready(function () {
+      $("#Josu").click(function () {
+        var aseo = $("#aseo").val();
+        var trato = $("#trato").val();
+        var punt = $("#puntualidad").val();
+        var comen = $("#comentarios").val();
+        alert(aseo);
+        alert(trato);
+        alert(punt);
+        alert(comen);
+        return /*init.sendData(aseo,trato,punt,comen)*/;
+      });
+    })
+
   }
 
 }

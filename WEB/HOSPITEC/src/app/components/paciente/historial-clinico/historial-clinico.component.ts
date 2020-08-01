@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { HistorialClinicoService } from 'src/app/services/paciente/historial-clinico.service';
+import { HistorialClinico } from 'src/app/models/paciente/historial-clinico';
+
+import { of } from 'rxjs';
+declare var $: any;
 
 @Component({
   selector: 'app-historial-clinico',
@@ -6,10 +11,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./historial-clinico.component.css']
 })
 export class HistorialClinicoComponent implements OnInit {
-  historialList = [];
-  constructor() { }
 
+  constructor(public historialService: HistorialClinicoService) { }
+  historialList: HistorialClinico[] = [];
   ngOnInit(): void {
+
+    this.historialService.getHistorial(1).subscribe((pacientes) => {
+      this.historialList = pacientes;
+    })
+
   }
 
 }

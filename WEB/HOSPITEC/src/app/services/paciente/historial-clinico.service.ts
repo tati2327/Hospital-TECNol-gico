@@ -13,8 +13,8 @@ export class HistorialClinicoService {
 
   constructor(private http: HttpClient) { }
 
-  getEvaluaciones(): Observable<HistorialClinico[]> {
-    return this.http.get<HistorialClinico[]>('http://localhost:8081/api/historial');
+  getHistorial(id): Observable<HistorialClinico[]> {
+    return this.http.get<HistorialClinico[]>('http://localhost:8081/api/historial/'+id);
 
   }
 
