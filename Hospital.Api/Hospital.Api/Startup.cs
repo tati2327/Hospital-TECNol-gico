@@ -27,7 +27,12 @@ namespace Hospital.Api
         private void InitializeStorage(IServiceCollection services)
         {
             string connectionString = "Server=hospitaldbserver-dev.postgres.database.azure.com;Database=postgres;Port=5432;User Id=Pablo@hospitaldbserver-dev;Password=ABcd123!;Ssl Mode=Require;";
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            });
             services.AddDbContext<StorageBroker>(context => context.UseNpgsql(connectionString));
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,6 +42,8 @@ namespace Hospital.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
             app.UseHttpsRedirection();
 
