@@ -12,48 +12,48 @@ namespace Hospital.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PatientsController : ControllerBase
+    public class salonsController : ControllerBase
     {
         private readonly StorageBroker _context;
 
-        public PatientsController(StorageBroker context)
+        public salonsController(StorageBroker context)
         {
             _context = context;
         }
 
-        // GET: api/Patients
+        // GET: api/salons
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Patient>>> GetPatients()
+        public async Task<ActionResult<IEnumerable<salon>>> Getsalon()
         {
-            return await _context.Patients.ToListAsync();
+            return await _context.salon.ToListAsync();
         }
 
-        // GET: api/Patients/5
+        // GET: api/salons/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Patient>> GetPatient(int id)
+        public async Task<ActionResult<salon>> Getsalon(int id)
         {
-            var patient = await _context.Patients.FindAsync(id);
+            var salon = await _context.salon.FindAsync(id);
 
-            if (patient == null)
+            if (salon == null)
             {
                 return NotFound();
             }
 
-            return patient;
+            return salon;
         }
 
-        // PUT: api/Patients/5
+        // PUT: api/salons/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPatient(int id, Patient patient)
+        public async Task<IActionResult> Putsalon(int id, salon salon)
         {
-            if (id != patient.Id)
+            if (id != salon.nosalon)
             {
                 return BadRequest();
             }
 
-            _context.Entry(patient).State = EntityState.Modified;
+            _context.Entry(salon).State = EntityState.Modified;
 
             try
             {
@@ -61,7 +61,7 @@ namespace Hospital.Api.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!PatientExists(id))
+                if (!salonExists(id))
                 {
                     return NotFound();
                 }
@@ -74,37 +74,37 @@ namespace Hospital.Api.Controllers
             return NoContent();
         }
 
-        // POST: api/Patients
+        // POST: api/salons
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Patient>> PostPatient(Patient patient)
+        public async Task<ActionResult<salon>> Postsalon(salon salon)
         {
-            _context.Patients.Add(patient);
+            _context.salon.Add(salon);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPatient", new { id = patient.Id }, patient);
+            return CreatedAtAction("Getsalon", new { id = salon.nosalon }, salon);
         }
 
-        // DELETE: api/Patients/5
+        // DELETE: api/salons/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Patient>> DeletePatient(int id)
+        public async Task<ActionResult<salon>> Deletesalon(int id)
         {
-            var patient = await _context.Patients.FindAsync(id);
-            if (patient == null)
+            var salon = await _context.salon.FindAsync(id);
+            if (salon == null)
             {
                 return NotFound();
             }
 
-            _context.Patients.Remove(patient);
+            _context.salon.Remove(salon);
             await _context.SaveChangesAsync();
 
-            return patient;
+            return salon;
         }
 
-        private bool PatientExists(int id)
+        private bool salonExists(int id)
         {
-            return _context.Patients.Any(e => e.Id == id);
+            return _context.salon.Any(e => e.nosalon == id);
         }
     }
 }

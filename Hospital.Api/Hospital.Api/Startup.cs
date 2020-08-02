@@ -22,7 +22,7 @@ namespace Hospital.Api
         {
             services.AddControllers();
             InitializeStorage(services);
-            
+
         }
         private void InitializeStorage(IServiceCollection services)
         {
