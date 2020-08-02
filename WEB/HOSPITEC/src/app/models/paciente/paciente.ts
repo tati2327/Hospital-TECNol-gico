@@ -1,5 +1,4 @@
 export class Paciente {
-  idPaciente: number
   cedula: string;
   nombre: string;
   apellidos: string;
@@ -8,10 +7,13 @@ export class Paciente {
   direccion: string;
   tratamiento: string;
   patologias: string;
+  doctorencargado: string;
+  estado: string;
+  contraseña: string;
 
 
-  constructor(id, ced, nom, ape, tel, fecha, dir, trat, pat) {
-    this.idPaciente = id;
+
+  constructor(ced, nom, ape, tel, fecha, dir, trat, pat,dr,est,cont) {
     this.cedula = ced;
     this.nombre = nom;
     this.apellidos = ape;
@@ -20,6 +22,9 @@ export class Paciente {
     this.direccion = dir;
     this.tratamiento = trat;
     this.patologias = pat;
+    this.doctorencargado = dr;
+    this.estado = est;
+    this.contraseña = cont;
   }
 
 }
