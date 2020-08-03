@@ -1,0 +1,17 @@
+.btn-primary-spacing {
+  margin-right: 20px;
+  margin-bottom: 10px !important;
+}
+
+.mystyle {
+  align-items: center;
+  box-sizing: content-box;
+  width: 500 ;
+  height: 800px;
+  border: 2px dotted black;
+  padding: 20px;
+  border-radius: 30px
+}
+
+
+

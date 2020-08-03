@@ -8,7 +8,7 @@ import { PacienteComponent } from './components/paciente/paciente/paciente.compo
 import { EvaluacionServicioComponent } from './components/paciente/evaluacion-servicio/evaluacion-servicio.component';
 import { HistorialClinicoComponent } from './components/paciente/historial-clinico/historial-clinico.component';
 import { ReservacionComponent } from './components/paciente/reservacion/reservacion.component';
-
+import { GestionPacienteComponent} from './components/doctor/gestion-paciente/gestion-paciente.component';
 
 
 const routes: Routes = [
@@ -18,7 +18,8 @@ const routes: Routes = [
   { path: 'paciente', component: PacienteComponent },
   { path: 'reservacion', component: ReservacionComponent },
   { path: 'historial', component: HistorialClinicoComponent },
-  { path: 'evaluacion', component: EvaluacionServicioComponent }
+  { path: 'evaluacion', component: EvaluacionServicioComponent },
+  {path: 'gestionPacientes', component:GestionPacienteComponent},
 ];
 
 @NgModule({

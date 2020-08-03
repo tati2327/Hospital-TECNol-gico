@@ -1,0 +1,84 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="container col-md-6" >
+      <div class="mystyle" >
+        <div class="col-md-auto">
+          <h3>Gestión de Paciente</h3>
+          <form>
+            <div class="form-group col-md-03">
+              <div class="form-group col-md-auto">
+                <label for="cedula">Cédula</label>
+                <input type="text" class="form-control" #cedula>
+              </div>
+              <div class="form-group col-md-auto">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" #nombre>
+              </div>
+              <div class="form-group col-md-auto">
+                <label for="apellidos">apellidos</label>
+                <input type="text" class="form-control" #apellidos>
+              </div>
+              <div class="form-group col-md-auto">
+                <label for="telefono">telefono</label>
+                <input type="text" class="form-control" #telefono>
+              </div>
+              <div class="form-group col-md-auto">
+                <label for="nacimiento">nacimiento</label>
+                <input type="text" class="form-control" #nacimiento>
+              </div>
+              <div class="form-group col-md-auto">
+                <label for="direccion">dirección</label>
+                <input type="text" class="form-control" #direccion>
+              </div>
+              <div class="form-group col-md-auto">
+                <label for="patologias">patologias</label>
+                <input type="text" class="form-control" #patologias>
+              </div>
+              <div class="form-group col-md-auto">
+                <label for="tratamiento ">tratamiento</label>
+                <input type="text" class="form-control" #tratamiento >
+              </div>
+            </div>
+
+            <div class="form-group col-md-auto">
+              <button type="button" class="btn btn-dark btn-primary-spacing" btn-sm> Ingresar</button>
+              <button type="button" class="btn btn-dark btn-primary-spacing" btn-sm> Modificar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="container col-md-6" id="content" #content>
+      <div class="mystyle">
+        <h3 class="h3">Pacientes</h3>
+        <table class="table table-hover table-striped text"  data-pagination="true" id="makeEditable">
+          <thead>
+              <tr>
+                <th scope="col">Cédula</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Estado</th>
+              </tr>
+          </thead>
+          <tbody>
+
+            <tr *ngFor="let item of pacienteX">
+              <th scope="row">{{ item.id }}</th>
+              <td>{{ item.name }}</td>
+              <td>{{ item.description }}</td>
+              <td>{{ item.symptoms }}</td>
+              <td>{{ item.treatment }}</td>
+              <td><a  data-toggle="modal" href="#" id="getModifyData" data-target="#edit" class="editTable">Editar</a>
+              <a  data-toggle="modal" href="#" id="getDeleteData" data-target="#delete" >Eliminar</a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        </div>
+    </div>
+  </div>
+</div>
+
+
