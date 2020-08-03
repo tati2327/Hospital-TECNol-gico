@@ -1,0 +1,95 @@
+<div id="content" #content>
+
+    <h3>Centros Hospitalarios</h3>
+    <table class="table">
+       <thead>
+          <tr>
+             <th scope="col">Nombre</th>
+             <th scope="col">Recuperacion Mínima</th>
+          </tr>
+       </thead>
+       <tbody>
+         
+          <tr *ngFor="let item of listaProcedimientos">
+             <th scope="row">{{item.nombre}}</th>
+             <td>{{ item.recuperacionminima }}</td>
+             <td><a  data-toggle="modal" href="#" data-target="#edit" class="editTable">Editar</a>
+              <a  data-toggle="modal" href="#" data-target="#delete" >Eliminar</a>
+            </td>
+          </tr>
+       </tbody>
+    </table>
+    <button class="btn btn-dark" data-toggle="modal" data-target="#create">Agregar hospital</button>
+  </div>
+  
+  <!--Modal para crear una nueva patologia-->
+  <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog" role="document">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h5 class="modal-title" id="exampleModalLabel">Agregar Patología</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+           </button>
+         </div>
+         <div class="modal-body">
+          <app-crear-procedimientos></app-crear-procedimientos>
+           <!-- <app-crear-procedimientos></app-crear-procedimientos> -->
+        </div>
+         <div class="modal-footer">
+           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+           <button type="submit" class="btn btn-primary"  >Agregar</button>
+         </div>
+       </div>
+     </div>
+   </div>
+  
+  
+   <!--Modal para modificar una nueva patologia-->
+  <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog" role="document">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h5 class="modal-title" id="exampleModalLabel">Editar Patología</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+           </button>
+         </div>
+         <div class="modal-body">
+           <!-- <app-modify-hospital></app-modify-hospital> -->
+           
+        </div>
+         <div class="modal-footer">
+           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+           <button type="button" class="btn btn-primary"  >Guardar cambios</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--Modal para eliminar una nueva patologia-->
+  <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog" role="document">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h5 class="modal-title" id="exampleModalLabel">Eliminar patologia</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+           </button>
+         </div>
+         <div class="modal-body">
+           <div class="alert alert-danger" role="alert">
+             ¿Está seguro?
+           </div>
+        </div>
+         <div class="modal-footer">
+           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+           <button type="button" class="btn btn-primary"  >Eliminar</button>
+        </div>
+      </div>
+    </div>
+   </div>   
+   
+  
+  
+  

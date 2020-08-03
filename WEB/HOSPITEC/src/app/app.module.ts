@@ -20,6 +20,9 @@ import { CrearReservacionComponent } from './components/paciente/reservacion/cre
 import { ModificarReservacionComponent } from './components/paciente/reservacion/modificar-reservacion/modificar-reservacion.component';
 import { GestionPacienteComponent } from './components/doctor/gestion-paciente/gestion-paciente.component';
 import { HistorialMedicoComponent } from './components/doctor/historial-medico/historial-medico.component';
+import { ProcedimientosMedicosComponent } from './components/adminView/procedimientos-medicos/procedimientos-medicos.component';
+import { CrearProcedimientosComponent } from './components/adminView/procedimientos-medicos/crear-procedimientos/crear-procedimientos.component';
+import { ModificarProcedimientosComponent } from './components/adminView/procedimientos-medicos/modificar-procedimientos/modificar-procedimientos.component';
 
 @NgModule({
   declarations: [
@@ -36,9 +39,7 @@ import { HistorialMedicoComponent } from './components/doctor/historial-medico/h
     CrearComponent,
     ModificarComponent,
     CrearReservacionComponent,
-    ModificarReservacionComponent,
-    GestionPacienteComponent,
-    HistorialMedicoComponent
+    ModificarReservacionComponent
   ],
   imports: [
     BrowserModule,
