@@ -32,6 +32,8 @@ namespace Hospital.Api
                 c.AddPolicy("AllowOrigin", builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
             });
             services.AddDbContext<StorageBroker>(context => context.UseNpgsql(connectionString));
+            services.AddDbContext<AppDbBroker>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnectionString")));
+
             services.AddControllers();
         }
 
