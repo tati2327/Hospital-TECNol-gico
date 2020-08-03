@@ -5,7 +5,6 @@
   <table class="table">
     <thead>
       <tr>
-        <th scope="col">ID</th>
         <th scope="col">Nombre</th>
         <th scope="col">Apellidos</th>
         <th scope="col">Cedula</th>
@@ -14,13 +13,14 @@
         <th scope="col">Direccion</th>
         <th scope="col">Tratamiento</th>
         <th scope="col">Patologias</th>
+        <th scope="col">Doctor Encargado</th>
+        <th scope="col">Estado</th>
         <th scope="col">Editar/Eliminar</th>
       </tr>
     </thead>
     <tbody>
 
       <tr *ngFor="let item of patientsList">
-        <th scope="row">{{ item.idPaciente }}</th>
         <td>{{ item.nombre }}</td>
         <td>{{ item.apellidos }}</td>
         <td>{{ item.cedula }}</td>
@@ -29,6 +29,9 @@
         <td>{{ item.direccion }}</td>
         <td>{{ item.tratamiento }}</td>
         <td>{{ item.patologias }}</td>
+        <td>{{ item.doctorencargado }}</td>
+        <td>{{ item.estado }}</td>
+
         <td>
           <a data-toggle="modal" id="getModifyData" href="#" data-target="#edit" class="editTable">Editar</a>
           <a data-toggle="modal" id="Josu" href="#" data-target="#delete">Eliminar</a>

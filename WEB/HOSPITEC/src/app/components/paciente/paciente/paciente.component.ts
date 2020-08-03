@@ -49,7 +49,6 @@ export class PacienteComponent implements OnInit {
 
     $(document).ready(function () {
       $("#sendModifiedPatient").click(function () {
-        var id = $("#id").val();
         var nom = $("#modNombre").val();
         var ape = $("#modApellidos").val();
         var ced = $("#modCedula").val();
@@ -58,16 +57,10 @@ export class PacienteComponent implements OnInit {
         var dir = $("#modDireccion").val();
         var trat = $("#modTratamiento").val();
         var pat = $("#modPatologias").val();
-        alert(id)
-        alert(nom);
-        alert(ape);
-        alert(ced);
-        alert(tel);
-        alert(fecha);
-        alert(dir);
-        alert(trat);
-        alert(pat);
-        return /*init.modificar(id, ced, nom, ape, fecha, tel, dir, trat, pat)*/;
+        //var dr = $("#moddoctorencargado").val();
+        var est = $("#modestado").val();
+        var cont = $("#modcontraseña").val();
+        return init.modificar(ced, nom, ape, fecha, tel, dir, trat, pat,"",est,cont);
       });
     })
 
@@ -81,15 +74,10 @@ export class PacienteComponent implements OnInit {
         var dir = $("#direccion").val();
         var trat = $("#tratamiento").val();
         var pat = $("#patologias").val();
-        alert(nom);
-        alert(ape);
-        alert(ced);
-        alert(tel);
-        alert(fecha);
-        alert(dir);
-        alert(trat);
-        alert(pat);
-        return /*init.sendData(ced, nom, ape, fecha, tel, dir, trat, pat)*/;
+        //var dr = $("#doctorencargado").val();
+        var est = $("#estado").val();
+        var cont = $("#contraseña").val();
+        return init.sendData(ced, nom, ape, fecha, tel, dir, trat, pat, "", est, cont );
       });
     })
 

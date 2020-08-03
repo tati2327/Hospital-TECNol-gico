@@ -11,13 +11,14 @@ export class PacienteService {
   constructor(private http: HttpClient) { }
 
   getPacientes(): Observable<Paciente[]> {
-    return this.http.get<Paciente[]>('http://localhost:8081/api/paciente');
+    return this.http.get<Paciente[]>('https://localhost:44354/api/pacientes');
 
   }
 
-  sendData(ced, nom, ape, tel, fecha, dir, trat, pat) {
-    return this.http.post('http://localhost:8081/api/paciente', {
-      cedula: ced, nombre: nom, apellidos: ape, telefono: tel, nacimiento: fecha, direccion: dir, tratamiento: trat, patologias: pat
+  sendData(ced, nom, ape, tel, fecha, dir, trat, pat, dr, est, cont) {
+    return this.http.post('https://localhost:44354/api/pacientes', {
+      cedula: ced, nombre: nom, apellidos: ape, telefono: tel, nacimiento: fecha, direccion: dir, tratamiento: trat, patologias: pat,
+      estado: est, contraseña: cont,
     }).subscribe(
       (val) => {
         console.log("POST call successful value returned in body",
@@ -33,7 +34,7 @@ export class PacienteService {
 
   delete(id) {
 
-    return this.http.delete('http://localhost:8081/api/paciente/' + id).subscribe(
+    return this.http.delete('https://localhost:44354/api/pacientes/' + id).subscribe(
       (val) => {
         console.log("DELETE call successful value returned in body",
           val);
@@ -47,10 +48,10 @@ export class PacienteService {
   }
 
 
-  modificar(id, ced, nom, ape, tel, fecha, dir, trat, pat) {
-    return this.http.put('http://localhost:8081/api/paciente/' + id, {
-      idHistorial: id,
-      cedula: ced, nombre: nom, apellidos: ape, telefono: tel, nacimiento: fecha, direccion: dir, tratamiento: trat, patologias: pat
+  modificar(ced, nom, ape, tel, fecha, dir, trat, pat, dr, est, cont) {
+    return this.http.put('https://localhost:44354/api/pacientes/' + ced, {
+      cedula: ced, nombre: nom, apellidos: ape, telefono: tel, nacimiento: fecha, direccion: dir, tratamiento: trat, patologias: pat,
+      estado: est, contraseña: cont,
     }).subscribe(
       (val) => {
         console.log("PUT call successful value returned in body",
