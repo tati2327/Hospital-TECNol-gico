@@ -19,8 +19,8 @@ export class ProcedimientosService {
   }
 
   sendData(nombre, recuperacionMinima) {
-    return this.http.post('http://localhost:8081/api/contacto', {
-      nombre: nombre, recuperacionminima: recuperacionMinima}).subscribe(
+    return this.http.post('https://localhost:5001/api/procedimientomedicos', {
+      nombre: nombre, recuperacionminima: Number(recuperacionMinima)}).subscribe(
       (val) => {
         console.log("POST call successful value returned in body",
           response => {
@@ -35,7 +35,7 @@ export class ProcedimientosService {
 
   delete(nombre) {
 
-    return this.http.delete('http://localhost:8081/api/contacto/' + nombre).subscribe(
+    return this.http.delete('https://localhost:5001/api/procedimientomedicos/' + nombre).subscribe(
       (val) => {
         console.log("DELETE call successful value returned in body",
           val);
@@ -50,8 +50,8 @@ export class ProcedimientosService {
 
 
   modificar(nombre,recuperacionMinima) {
-    return this.http.put('http://localhost:8081/api/contacto/' + nombre, {
-      nombre: nombre,recuperacionminima: recuperacionMinima}).subscribe(
+    return this.http.put('https://localhost:5001/api/procedimientomedicos/' + nombre, {
+      nombre: nombre,recuperacionminima: Number(recuperacionMinima)}).subscribe(
       (val) => {
         console.log("PUT call successful value returned in body",
           val);

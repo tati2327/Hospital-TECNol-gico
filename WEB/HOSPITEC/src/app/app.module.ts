@@ -39,7 +39,12 @@ import { ModificarProcedimientosComponent } from './components/adminView/procedi
     CrearComponent,
     ModificarComponent,
     CrearReservacionComponent,
-    ModificarReservacionComponent
+    ModificarReservacionComponent,
+    GestionPacienteComponent,
+    HistorialMedicoComponent,
+    ProcedimientosMedicosComponent,
+    CrearProcedimientosComponent,
+    ModificarProcedimientosComponent
   ],
   imports: [
     BrowserModule,

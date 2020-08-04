@@ -1,6 +1,6 @@
 export class Procedimientos {
     nombre:string;
-    recuperacionMinima:number;
+    recuperacionMinima:string;
     constructor(nombre,recuperacionMinima){
         this.nombre=nombre;
         this.recuperacionMinima=recuperacionMinima;
