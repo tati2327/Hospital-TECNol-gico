@@ -23,6 +23,10 @@ import { HistorialMedicoComponent } from './components/doctor/historial-medico/h
 import { ProcedimientosMedicosComponent } from './components/adminView/procedimientos-medicos/procedimientos-medicos.component';
 import { CrearProcedimientosComponent } from './components/adminView/procedimientos-medicos/crear-procedimientos/crear-procedimientos.component';
 import { ModificarProcedimientosComponent } from './components/adminView/procedimientos-medicos/modificar-procedimientos/modificar-procedimientos.component';
+import { PersonalComponent } from './components/adminView/personal/personal.component';
+import { CrearPersonalComponent } from './components/adminView/personal/crear-personal/crear-personal.component';
+import { ModificarPersonalComponent } from './components/adminView/personal/modificar-personal/modificar-personal.component';
+
 
 @NgModule({
   declarations: [
@@ -44,7 +48,10 @@ import { ModificarProcedimientosComponent } from './components/adminView/procedi
     HistorialMedicoComponent,
     ProcedimientosMedicosComponent,
     CrearProcedimientosComponent,
-    ModificarProcedimientosComponent
+    ModificarProcedimientosComponent,
+    PersonalComponent,
+    CrearPersonalComponent,
+    ModificarPersonalComponent
   ],
   imports: [
     BrowserModule,

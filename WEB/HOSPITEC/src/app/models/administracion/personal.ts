@@ -1,0 +1,21 @@
+export class Personal {
+    cedula:string;
+    nombre:string;
+    apellidos:string;
+    telefono:string;
+    nacimiento:string;
+    direccion:string;
+    ingreso:string;
+    puesto:string;
+    contraseña:string;
+    constructor(cedula,nombre,apellidos,telefono,nacimiento,direccion,ingreso,puesto,contraseña){
+        this.cedula=cedula;
+        this.nombre=nombre;
+        this.telefono=telefono;
+        this.nacimiento=nacimiento;
+        this.direccion=direccion;
+        this.ingreso=ingreso;
+        this.puesto=puesto;
+        this.contraseña=contraseña;
+    }
+}
