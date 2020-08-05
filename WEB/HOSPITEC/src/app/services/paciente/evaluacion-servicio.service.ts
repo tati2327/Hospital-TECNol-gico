@@ -20,7 +20,7 @@ export class EvaluacionServicioService {
 
   sendData(aseo, trat,punt, coment) {
     return this.http.post('https://localhost:44354/api/evaluacion', {
-      aseo: aseo, trato: trat, puntualidad: punt, comentarios: coment
+      aseo: parseInt(aseo), trato: parseInt(trat), puntualidad: parseInt(punt), comentarios: coment
     }).subscribe(
       (val) => {
         console.log("POST call successful value returned in body",
@@ -52,7 +52,7 @@ export class EvaluacionServicioService {
 
   modificar(id, aseo, trat, punt, coment) {
     return this.http.put('https://localhost:44354/api/evaluacion' + id, {
-      Id: id, aseo: aseo, trato: trat, puntualidad: punt, comentarios: coment
+      Id: id, aseo: parseInt(aseo), trato: parseInt(trat), puntualidad: parseInt(punt), comentarios: coment
     }).subscribe(
       (val) => {
         console.log("PUT call successful value returned in body",
