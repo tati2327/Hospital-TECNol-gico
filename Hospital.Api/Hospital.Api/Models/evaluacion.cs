@@ -12,11 +12,11 @@ namespace Hospital.Api.Models
         [BsonId]
         public ObjectId Id { get; set; }
 
-        public string aseo { get; set; }
+        public int aseo { get; set; }
 
-        public string trato { get; set; }
-        public string puntualidad { get; set; }
-        public string comentarios { get; set; }
+        public int trato { get; set; }
+        public int puntualidad { get; set; }
+        public int comentarios { get; set; }
 
     }
 }
