@@ -16,7 +16,7 @@ namespace Hospital.Api.Models
 
         public int trato { get; set; }
         public int puntualidad { get; set; }
-        public int comentarios { get; set; }
+        public string comentarios { get; set; }
 
     }
 }

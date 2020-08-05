@@ -15,7 +15,7 @@ namespace Hospital.Api.Repositories
 
         public Evaluacion()
         {
-            Collection = repositorio.db.GetCollection<evaluacion>("hospitaltecnologico");
+            Collection = repositorio.db.GetCollection<evaluacion>("evaluacionTabla");
         }
         public async Task DeleteEvaluacion(string id)
         {
