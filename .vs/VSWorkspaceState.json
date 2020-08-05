@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\WEB",
+    "\\WEB\\HOSPITEC",
+    "\\WEB\\HOSPITEC\\src",
+    "\\WEB\\HOSPITEC\\src\\app",
+    "\\WEB\\HOSPITEC\\src\\app\\components",
+    "\\WEB\\HOSPITEC\\src\\app\\components\\paciente",
+    "\\WEB\\HOSPITEC\\src\\app\\components\\paciente\\paciente",
+    "\\WEB\\HOSPITEC\\src\\app\\components\\paciente\\paciente\\crear",
+    "\\WEB\\HOSPITEC\\src\\app\\components\\paciente\\paciente\\modificar"
+  ],
+  "SelectedNode": "\\WEB\\HOSPITEC\\src\\app\\components\\paciente\\paciente\\paciente.component.html",
+  "PreviewInSolutionExplorer": false
+}

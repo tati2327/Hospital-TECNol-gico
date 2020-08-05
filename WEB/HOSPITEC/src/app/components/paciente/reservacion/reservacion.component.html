@@ -8,8 +8,6 @@
           <th scope="col">Cedula del Paciente</th>
           <th scope="col">Fecha de Ingreso</th>
           <th scope="col">Fecha de Salida</th>
-          <th scope="col">Procedimiento Médico</th>
-          <th scope="col">Telefono</th>
           <th scope="col">N° de Cama</th>
           <th scope="col">Editar/Eliminar</th>
         </tr>
@@ -17,13 +15,11 @@
       <tbody>
 
         <tr *ngFor="let item of reservacionList">
-          <th scope="row">{{ item.idReservacion }}</th>
-          <td>{{ item.idPaciente }}</td>
-          <td>{{ item.idPersonal }}</td>
+          <th scope="row">{{ item.idreservacion }}</th>
+          <td>{{ item.cedulapaciente }}</td>
           <td>{{ item.ingreso }}</td>
           <td>{{ item.salida }}</td>
-          <td>{{ item.nombreProcMedico }}</td>
-          <td>{{ item.noCama }}</td>
+          <td>{{ item.nocama }}</td>
           <td>
             <a data-toggle="modal" id="getModifyData" href="#" data-target="#edit" class="editTable">Editar</a>
             <a data-toggle="modal" id="getDeleteData" href="#" data-target="#delete">Eliminar</a>

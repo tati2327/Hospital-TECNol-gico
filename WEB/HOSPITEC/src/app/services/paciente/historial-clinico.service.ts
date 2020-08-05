@@ -13,14 +13,14 @@ export class HistorialClinicoService {
 
   constructor(private http: HttpClient) { }
 
-  getHistorial(id): Observable<HistorialClinico[]> {
-    return this.http.get<HistorialClinico[]>('http://localhost:8081/api/historial/'+id);
+  getHistorial(): Observable<HistorialClinico[]> {
+    return this.http.get<HistorialClinico[]>('https://localhost:44354/api/historialclinicos');
 
   }
 
   sendData(fecha, procedimiento, trat, paciente, personal) {
-    return this.http.post('http://localhost:8081/api/historial', {
-      fecha: fecha, procedimientoMedico: procedimiento, tratamiento: trat, cedulaPaciente: paciente, cedulaPersonal: personal
+    return this.http.post('https://localhost:44354/api/historialclinicos', {
+      fecha: fecha, procedimientoMedico: procedimiento, tratamiento: trat, cedulapaciente: paciente, cedulaPersonal: personal
     }).subscribe(
       (val) => {
         console.log("POST call successful value returned in body",
@@ -51,7 +51,7 @@ export class HistorialClinicoService {
 
 
   modificar(id, fecha, procedimiento, trat, paciente, personal) {
-    return this.http.put('http://localhost:8081/api/historial/' + id, {
+    return this.http.put('https://localhost:44354/api/historialclinicos' + id, {
       idHistorial: id,
       fecha: fecha, procedimientoMedico: procedimiento, tratamiento: trat, cedulaPaciente: paciente, cedulaPersonal: personal
     }).subscribe(

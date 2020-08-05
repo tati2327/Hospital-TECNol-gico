@@ -15,14 +15,13 @@ export class ReservacionService {
   constructor(private http: HttpClient) { }
 
   getReservaciones(): Observable<Reservacion[]> {
-    return this.http.get<Reservacion[]>('http://localhost:8081/api/reservacion');
+    return this.http.get<Reservacion[]>('https://localhost:44354/api/reservacions');
 
   }
 
-  sendData(reservacion, paciente, ingreso, salida, cama, procedimiento) {
-    return this.http.post('http://localhost:8081/api/reservacion', {
-      idReservacion: reservacion, idPaciente: paciente, ingreso: ingreso, salida: salida, nombreProcMedico: procedimiento,
-      noCama: cama
+  sendData(reservacion, paciente, ingreso, salida, cama,) {
+    return this.http.post('https://localhost:44354/api/reservacions', {
+      idreservacion: reservacion, cedulapaciente: paciente, ingreso: ingreso, salida: salida, nocama: parseInt(cama)
     }).subscribe(
       (val) => {
         console.log("POST call successful value returned in body",
@@ -38,7 +37,7 @@ export class ReservacionService {
 
   delete(id) {
 
-    return this.http.delete('http://localhost:8081/api/reservacion/' + id).subscribe(
+    return this.http.delete('https://localhost:44354/api/reservacions/' + id).subscribe(
       (val) => {
         console.log("DELETE call successful value returned in body",
           val);
@@ -52,11 +51,9 @@ export class ReservacionService {
   }
 
 
-  modificar(id, reservacion, paciente, ingreso, salida, cama, procedimiento) {
-    return this.http.put('http://localhost:8081/api/reservacion/' + id, {
-      idHistorial: id,
-      idReservacion: reservacion, idPaciente: paciente, ingreso: ingreso, salida: salida, nombreProcMedico: procedimiento,
-      noCama: cama
+  modificar(reservacion, paciente, ingreso, salida, cama) {
+    return this.http.put('https://localhost:44354/api/reservacions/' + reservacion, {
+      idreservacion: reservacion, idPaciente: paciente, ingreso: ingreso, salida: salida,nocama: parseInt(cama)
     }).subscribe(
       (val) => {
         console.log("PUT call successful value returned in body",

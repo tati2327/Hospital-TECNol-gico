@@ -50,32 +50,26 @@ export class ReservacionComponent implements OnInit {
       $("#sendModifiedReservacion").click(function () {
         var id = $("#id").val();
         var ced = $("#cedMod").val();
-        var cedp = $("#cedPMod").val();
         var ing = $("#inMod").val();
         var sal = $("#salMod").val();
         var cama = $("#camMod").val();
         alert(ced);
-        alert(cedp);
         alert(ing);
         alert(sal);
         alert(cama);
-        return /*init.modificar(id, ced,cedp,ing,sal,cama)*/;
+        return init.modificar(id, ced,ing,sal,cama);
       });
     })
 
     $(document).ready(function () {
       $("#sendCreatedReservacion").click(function () {
+        var id = $("#idreservacion").val();
         var ced = $("#cedula").val();
-        var cedp = $("#cedulaPersonal").val();
         var ing = $("#ingreso").val();
         var sal = $("#salida").val();
         var cama = $("#cama").val();
-        alert(ced);
-        alert(cedp);
-        alert(ing);
-        alert(sal);
-        alert(cama);
-        return /*init.sendData(ced,cedp,ing,sal,cama)*/;
+        
+        return init.sendData(id,ced,ing,sal,cama);
       });
     })
 
