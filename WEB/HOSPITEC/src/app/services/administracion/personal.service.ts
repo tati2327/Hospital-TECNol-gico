@@ -22,7 +22,7 @@ export class PersonalService {
   sendData(cedula, nombre,apellidos,telefono,nacimiento,direccion,ingreso,puesto,contraseña) {
     return this.http.post('https://localhost:5001/api/personals', { cedula:cedula,
       nombre: nombre, apellidos: apellidos, telefono:telefono, nacimiento:nacimiento, direccion:direccion,
-    ingreso:ingreso, puesto:puesto, contraseña:contraseña}).subscribe(
+    ingreso:ingreso, puesto:puesto, contrasena:contraseña}).subscribe(
       (val) => {
         console.log("POST call successful value returned in body",
           response => {
@@ -51,10 +51,10 @@ export class PersonalService {
   }
 
 
-  modificar(llavePrimaria,cedula, nombre,apellidos,telefono,nacimiento,direccion,ingreso,puesto) {
-    return this.http.put('https://localhost:5001/api/procedimientomedicos/' + cedula, {cedula:cedula,
+  modificar(llavePrimaria,cedula, nombre,apellidos,telefono,nacimiento,direccion,ingreso,puesto,contraseña) {
+    return this.http.put('https://localhost:5001/api/personals/' + llavePrimaria, {cedula:cedula,
     nombre: nombre, apellidos: apellidos, telefono:telefono, nacimiento:nacimiento, direccion:direccion,
-  ingreso:ingreso, puesto:puesto}).subscribe(
+  ingreso:ingreso, puesto:puesto,contrasena:contraseña}).subscribe(
       (val) => {
         console.log("PUT call successful value returned in body",
           val);

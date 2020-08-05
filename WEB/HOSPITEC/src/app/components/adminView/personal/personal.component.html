@@ -1,6 +1,6 @@
 <div id="content" #content>
 
-    <h3 class="h3">Procedimientos Medicos</h3>
+    <h3 class="h3">PERSONAL</h3>
     <table class="table text">
        <thead>
           <tr>
@@ -13,6 +13,7 @@
              <th scope="col">Dirección</th>
              <th scope="col">Ingreso</th>
              <th scope="col">Puesto</th>
+             <th style="display:none;" scope="col">Contraseña</th>
 
           </tr>
        </thead>
@@ -28,13 +29,14 @@
              <td>{{ item.direccion }}</td>
              <td>{{ item.ingreso }}</td>
              <td>{{ item.puesto }}</td>
+             <td style="display:none;">{{item.contrasena }}</td>
              <td><a  data-toggle="modal" id="getModifyData" href="#" data-target="#edit" class="editTable">Editar</a>
               <a  data-toggle="modal" id="getDeleteData" href="#" data-target="#delete"  class="deleteRows">Eliminar</a>
             </td>
           </tr>
        </tbody>
     </table>
-    <button class="btn btn-dark" data-toggle="modal" data-target="#create" id="CreatePersonal">Agregar región</button>
+    <button class="btn btn-dark" data-toggle="modal" data-target="#create" id="CreatePersonal">Agregar personal</button>
   </div>
   
   <!--Modal para crear una nueva region-->
@@ -42,7 +44,7 @@
      <div class="modal-dialog" role="document">
        <div class="modal-content">
          <div class="modal-header header">
-           <h5 class="modal-title" id="exampleModalLabel">AGREGAR REGIÓN</h5>
+           <h5 class="modal-title" id="exampleModalLabel">AGREGAR PERSONAL</h5>
            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
              <span aria-hidden="true">&times;</span>
            </button>
@@ -64,7 +66,7 @@
      <div class="modal-dialog" role="document">
        <div class="modal-content">
          <div class="modal-header header">
-           <h5 class="modal-title" id="exampleModalLabel">EDITAR REGIÓN</h5>
+           <h5 class="modal-title" id="exampleModalLabel">MODIFICAR PERSONAL</h5>
            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
              <span aria-hidden="true">&times;</span>
            </button>
@@ -85,7 +87,7 @@
      <div class="modal-dialog" role="document">
        <div class="modal-content">
          <div class="modal-header header">
-           <h5 class="modal-title" id="exampleModalLabel">ELIMINAR REGIÓN</h5>
+           <h5 class="modal-title" id="exampleModalLabel">ELIMINAR PERSONAL</h5>
            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
              <span aria-hidden="true">&times;</span>
            </button>

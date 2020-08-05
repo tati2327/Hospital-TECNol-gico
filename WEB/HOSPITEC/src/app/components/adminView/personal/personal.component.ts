@@ -60,8 +60,11 @@ export class PersonalComponent implements AfterViewChecked, OnDestroy {
         var direccion=$row.find("td:eq(5)").text();
         var ingreso=$row.find("td:eq(6)").text();
         var puesto=$row.find("td:eq(7)").text();
+        var contraseña=$row.find("td:eq(8)").text();
+        console.log(contraseña);
         
         llavePrimaria=cedula;
+
         
         $("#cedulaModif").val(cedula);
         $("#nombreModif").val(nombre);
@@ -71,6 +74,7 @@ export class PersonalComponent implements AfterViewChecked, OnDestroy {
         $("#direccionModif").val(direccion);
         $("#ingresoModif").val(ingreso);
         $("#puestoModif").val(puesto);
+        $("#contraseñaModif").val(contraseña);
        
 
       });
@@ -86,8 +90,9 @@ export class PersonalComponent implements AfterViewChecked, OnDestroy {
         var direccion=$("#direccionModif").val();
         var ingreso=$("#ingresoModif").val();
         var puesto=$("#puestoModif").val();
+        var contraseña=$("#contraseñaModif").val();
         
-        personalService.modificar(llavePrimaria,cedula, nombre,apellidos,telefono,nacimiento,direccion, ingreso,puesto); 
+        personalService.modificar(llavePrimaria,cedula, nombre,apellidos,telefono,nacimiento,direccion, ingreso,puesto,contraseña); 
       });
     })
 

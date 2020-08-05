@@ -7,15 +7,16 @@ export class Personal {
     direccion:string;
     ingreso:string;
     puesto:string;
-    contraseña:string;
-    constructor(cedula,nombre,apellidos,telefono,nacimiento,direccion,ingreso,puesto,contraseña){
+    contrasena:string;
+    constructor(cedula,nombre,apellidos,telefono,nacimiento,direccion,ingreso,puesto,contrasena){
         this.cedula=cedula;
         this.nombre=nombre;
+        this.apellidos=apellidos;
         this.telefono=telefono;
         this.nacimiento=nacimiento;
         this.direccion=direccion;
         this.ingreso=ingreso;
         this.puesto=puesto;
-        this.contraseña=contraseña;
+        this.contrasena=contrasena;
     }
 }
