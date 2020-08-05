@@ -8828,19 +8828,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\toshi\\.nuget\\packages\\": {}
+    "C:\\Users\\Pablo Carmona\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\toshi\\Downloads\\Proyecto2Api\\Hospital-TECNol-gico\\Hospital.Api\\Hospital.Api\\Hospital.Api.csproj",
+      "projectUniqueName": "C:\\Users\\Pablo Carmona\\Documents\\Github\\Hospital-TECNol-gico\\Hospital.Api\\Hospital.Api\\Hospital.Api.csproj",
       "projectName": "Hospital.Api",
-      "projectPath": "C:\\Users\\toshi\\Downloads\\Proyecto2Api\\Hospital-TECNol-gico\\Hospital.Api\\Hospital.Api\\Hospital.Api.csproj",
-      "packagesPath": "C:\\Users\\toshi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\toshi\\Downloads\\Proyecto2Api\\Hospital-TECNol-gico\\Hospital.Api\\Hospital.Api\\obj\\",
+      "projectPath": "C:\\Users\\Pablo Carmona\\Documents\\Github\\Hospital-TECNol-gico\\Hospital.Api\\Hospital.Api\\Hospital.Api.csproj",
+      "packagesPath": "C:\\Users\\Pablo Carmona\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Pablo Carmona\\Documents\\Github\\Hospital-TECNol-gico\\Hospital.Api\\Hospital.Api\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\toshi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Pablo Carmona\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
