@@ -26,6 +26,7 @@ import { ModificarProcedimientosComponent } from './components/adminView/procedi
 import { PersonalComponent } from './components/adminView/personal/personal.component';
 import { CrearPersonalComponent } from './components/adminView/personal/crear-personal/crear-personal.component';
 import { ModificarPersonalComponent } from './components/adminView/personal/modificar-personal/modificar-personal.component';
+import { ModificarDoctorComponent } from './components/doctor/gestion-paciente/modificar/modificar.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { ModificarPersonalComponent } from './components/adminView/personal/modi
     ModificarProcedimientosComponent,
     PersonalComponent,
     CrearPersonalComponent,
-    ModificarPersonalComponent
+    ModificarPersonalComponent,
+    ModificarDoctorComponent
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ import { ReservacionComponent } from './components/paciente/reservacion/reservac
 import { GestionPacienteComponent} from './components/doctor/gestion-paciente/gestion-paciente.component';
 import { ProcedimientosMedicosComponent } from './components/adminView/procedimientos-medicos/procedimientos-medicos.component';
 import { PersonalComponent} from './components/adminView/personal/personal.component';
+import {HistorialMedicoComponent} from './components/doctor/historial-medico/historial-medico.component';
 
 const routes: Routes = [
   {path: '', component:HomepageComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path:'procedimientosMedicos',component:ProcedimientosMedicosComponent},
   { path: 'evaluacion', component: EvaluacionServicioComponent },
   {path: 'gestionPacientes', component:GestionPacienteComponent},
+  {path: 'historialMedico', component:HistorialMedicoComponent},
   {path: 'personal', component: PersonalComponent},
 ];
 

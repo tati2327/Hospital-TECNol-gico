@@ -1,1 +1,113 @@
-<p>historial-medico works!</p>
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="container col-md-6" >
+      <div class="mystyle" >
+        <div class="col-md-auto">
+          <h3>Gestión de Historial Médico</h3>
+          <form>
+            <div class="form-group col-md-03">
+              <div class="form-group col-md-auto">
+                <label for="cedula">Cédula paciente</label>
+                <input type="text" class="form-control" #cedula>
+              </div>
+              <div class="form-group col-md-auto">
+                <label for="fecha">Fecha</label>
+                <input type="text" class="form-control" #fecha>
+              </div>
+              <div class="form-group col-md-auto">
+                <label for="nombrep">Nombre del procedimiento</label>
+                <input type="text" class="form-control" #nombrep>
+              </div>
+              <div class="form-group col-md-auto">
+                <label for="tratamiento ">tratamiento</label>
+                <input type="text" class="form-control" #tratamiento >
+              </div>
+              <div class="form-group col-md-auto">
+                <label for="cedulaPersonal">Código de personal</label>
+                <input type="text" class="form-control" #cedulaPersonal>
+              </div>
+            </div>
+
+            <div class="form-group col-md-auto">
+              <button type="button" class="btn btn-dark btn-primary-spacing" btn-sm #sendCreatedPatient> Ingresar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="container col-md-6" id="content" #content>
+      <div class="mystyle">
+        <h3 class="h3">Historial médico Dashboard</h3>
+        <table class="table table-hover table-striped text"  data-pagination="true" id="makeEditable">
+          <thead>
+              <tr>
+                <th scope="col">Código de historial</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Procedimiento</th>
+                <th scope="col">Código de personal</th>
+              </tr>
+          </thead>
+          <tbody>
+
+            <tr *ngFor="let item of historialList">
+
+        <td>{{ item.idHistorial }}</td>
+              <td>{{ item.fecha }}</td>
+              <td>{{ item.procedimientoMedico }}</td>
+              <td>{{ item.cedulaPaciente }}</td>
+              <td><a  data-toggle="modal" href="#" id="getModifyData" data-target="#edit" class="editTable">Editar</a>
+              <a  data-toggle="modal" href="#" id="getDeleteData" data-target="#delete" >Eliminar</a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Paciente</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-modificar-doctor></app-modificar-doctor>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" id="sendModifiedPatient" data-dismiss="modal">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal para eliminar un paciente-->
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Eliminar patologia</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-danger" role="alert">
+          ¿Está seguro?
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="deletePatient" data-dismiss="modal">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
