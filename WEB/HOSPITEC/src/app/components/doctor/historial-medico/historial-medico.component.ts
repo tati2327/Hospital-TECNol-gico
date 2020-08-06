@@ -16,7 +16,7 @@ export class HistorialMedicoComponent implements OnInit {
   historialList: HistorialClinico[] = [];
 
   ngOnInit(): void {
-    this.historialService.getHistorial(1).subscribe((pacientes) => {
+    this.historialService.getHistorial().subscribe((pacientes) => {
       this.historialList = pacientes;
     })
   }

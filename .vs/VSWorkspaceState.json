@@ -7,10 +7,10 @@
     "\\WEB\\HOSPITEC\\src\\app",
     "\\WEB\\HOSPITEC\\src\\app\\components",
     "\\WEB\\HOSPITEC\\src\\app\\components\\paciente",
-    "\\WEB\\HOSPITEC\\src\\app\\components\\paciente\\paciente",
-    "\\WEB\\HOSPITEC\\src\\app\\components\\paciente\\paciente\\crear",
-    "\\WEB\\HOSPITEC\\src\\app\\components\\paciente\\paciente\\modificar"
+    "\\WEB\\HOSPITEC\\src\\app\\components\\paciente\\evaluacion-servicio",
+    "\\WEB\\HOSPITEC\\src\\app\\services",
+    "\\WEB\\HOSPITEC\\src\\app\\services\\paciente"
   ],
-  "SelectedNode": "\\WEB\\HOSPITEC\\src\\app\\components\\paciente\\paciente\\paciente.component.html",
+  "SelectedNode": "\\WEB\\HOSPITEC\\src\\app\\services\\paciente\\evaluacion-servicio.service.ts",
   "PreviewInSolutionExplorer": false
 }
