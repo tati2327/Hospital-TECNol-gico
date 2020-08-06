@@ -11,11 +11,13 @@ import { ReservacionComponent } from './components/paciente/reservacion/reservac
 import { GestionPacienteComponent} from './components/doctor/gestion-paciente/gestion-paciente.component';
 import { ProcedimientosMedicosComponent } from './components/adminView/procedimientos-medicos/procedimientos-medicos.component';
 import { PersonalComponent} from './components/adminView/personal/personal.component';
-import {HistorialMedicoComponent} from './components/doctor/historial-medico/historial-medico.component';
+import { HistorialMedicoComponent} from './components/doctor/historial-medico/historial-medico.component';
+import { CamaComponent } from './components/adminView/cama/cama.component';
 
 const routes: Routes = [
   {path: '', component:HomepageComponent},
   {path: 'salon', component: SalonComponent},
+  {path: 'cama', component: CamaComponent},
   { path: 'medical-equipment', component: MedicalEquipmentComponent },
   { path: 'paciente', component: PacienteComponent },
   { path: 'reservacion', component: ReservacionComponent },

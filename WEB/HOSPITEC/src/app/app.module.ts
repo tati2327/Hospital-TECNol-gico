@@ -27,6 +27,7 @@ import { PersonalComponent } from './components/adminView/personal/personal.comp
 import { CrearPersonalComponent } from './components/adminView/personal/crear-personal/crear-personal.component';
 import { ModificarPersonalComponent } from './components/adminView/personal/modificar-personal/modificar-personal.component';
 import { ModificarDoctorComponent } from './components/doctor/gestion-paciente/modificar/modificar.component';
+import { CamaComponent } from './components/adminView/cama/cama.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { ModificarDoctorComponent } from './components/doctor/gestion-paciente/m
     PersonalComponent,
     CrearPersonalComponent,
     ModificarPersonalComponent,
-    ModificarDoctorComponent
+    ModificarDoctorComponent,
+    CamaComponent
   ],
   imports: [
     BrowserModule,

@@ -34,6 +34,7 @@
       </div>
     </div>
 
+    
     <div class="container col-md-6" id="content" #content>
       <div class="mystyle">
         <h3 class="h3">Equipo Médico</h3>
@@ -50,10 +51,9 @@
       
             <tr *ngFor="let item of listaEquipoMedico">
               <th scope="row">{{ item.id }}</th>
-              <td>{{ item.name }}</td>
-              <td>{{ item.description }}</td>
-              <td>{{ item.symptoms }}</td>
-              <td>{{ item.treatment }}</td>
+              <td>{{ item.nombre }}</td>
+              <td>{{ item.proveedor }}</td>
+              <td>{{ item.cantidad }}</td>
               <td><a  data-toggle="modal" href="#" id="getModifyData" data-target="#edit" class="editTable">Editar</a>
               <a  data-toggle="modal" href="#" id="getDeleteData" data-target="#delete" >Eliminar</a>
             </td>

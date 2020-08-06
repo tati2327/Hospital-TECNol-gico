@@ -1,0 +1,79 @@
+<div class="container-fluid"> 
+    <div class="row">
+  
+      <div class="container col-md-6" >
+        <div class="mystyle" >
+          <div class="col-md-auto">
+            <h3>Gestión de Camas</h3>
+  
+            <form>
+              <div class="form-group col-md-03">
+                <div class="form-group col-md-auto">
+                  <label for="nocama">No. de Cama</label>
+                  <input type="text" class="form-control" #nocama>
+                </div>
+                <div class="form-group col-md-auto">
+                    <label for="tipocama">Tipo de cama</label>
+                    <select class="form-control" id="tipocama">
+                      <option>Normal</option>
+                      <option>UCI</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group col-md-auto">
+                  <div class="form-group ">
+                    <label for="nosalon">No. de Salon</label>
+                    <input type="text" class="form-control" #nosalon>
+                  </div>
+                </div>
+                <div class="form-group col-md-auto">
+                  <label for="disponible">Disponible</label>
+                  <select class="form-control" id="disponible">
+                    <option>Si</option>
+                    <option>No</option>
+                  </select>
+                </div>              
+  
+              <div class="form-group col-md-auto">
+                <button type="button" id="enviarCamaNueva" class="btn btn-dark btn-primary-spacing" btn-sm> Ingresar</button>
+                <button type="button" id="enviarModificacionCama" class="btn btn-dark btn-primary-spacing" btn-sm> Modificar</button>
+                <button type="button" id="eliminarCama" class="btn btn-dark btn-primary-spacing" btn-sm> Eliminar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  
+      
+      <div class="container col-md-6" id="content" #content>
+        <div class="mystyle">
+          <h3 class="h3">Camas</h3>
+          <table class="table table-hover table-striped text"  data-pagination="true" id="makeEditable">
+            <thead>
+                <tr>
+                  <th scope="col">No. Cama</th>
+                  <th scope="col">Tipo Cama</th>
+                  <th scope="col">No. Salon</th>
+                  <th scope="col">Disponible</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+              <tr *ngFor="let item of listaCamas">
+                <th scope="row">{{ item.noCama }}</th>
+                <td>{{ item.tipoCama }}</td>
+                <td>{{ item.noSalon }}</td>
+                <td>{{ item.disponible }}</td>
+                <td><a  data-toggle="modal" href="#" id="getModifyData" data-target="#edit" class="editTable">Editar</a>
+                <a  data-toggle="modal" href="#" id="eliminarCama" data-target="#delete" >Eliminar</a>
+              </td>
+            </tr>
+            </tbody>
+          </table>    
+          </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
