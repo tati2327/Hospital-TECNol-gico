@@ -15,6 +15,7 @@ export class EvaluacionServicioComponent implements OnInit {
   constructor(public evaluacion: EvaluacionServicioService) { }
 
   ngOnInit(): void {
+    var init = this.evaluacion;
 
     $(document).ready(function () {
       $("#Josu").click(function () {
@@ -26,7 +27,7 @@ export class EvaluacionServicioComponent implements OnInit {
         alert(trato);
         alert(punt);
         alert(comen);
-        return /*init.sendData(aseo,trato,punt,comen)*/;
+        return init.sendData(aseo,trato,punt,comen);
       });
     })
 

@@ -1,18 +1,16 @@
 export class Reservacion {
-  idReservacion: number;
-  idPaciente: number;
+  idreservacion: number;
+  cedulapaciente: number;
   ingreso: string;
   salida: string;
-  nombreProcMedico: string;
-  noCama: string;
+  nocama: string;
 
   constructor(reservacion, paciente, ingreso, salida, cama, procedimiento) {
-    this.idReservacion = reservacion;
-    this.idPaciente = paciente;
+    this.idreservacion = reservacion;
+    this.cedulapaciente = paciente;
     this.ingreso = ingreso;
     this.salida = salida;
-    this.noCama = cama;
-    this.nombreProcMedico = procedimiento;
+    this.nocama = cama;
   }
 
 }

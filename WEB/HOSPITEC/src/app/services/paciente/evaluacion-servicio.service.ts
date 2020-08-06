@@ -14,14 +14,13 @@ export class EvaluacionServicioService {
   constructor(private http: HttpClient) { }
 
   getEvaluaciones(): Observable<EvaluacionServicio[]> {
-    return this.http.get<EvaluacionServicio[]>('http://localhost:8081/api/contacto');
+    return this.http.get<EvaluacionServicio[]>('https://localhost:44354/api/evaluacion');
 
   }
 
-  sendData(name, Apellido, contactId, age, nationality, address, pathologies, email) {
-    return this.http.post('http://localhost:8081/api/contacto', {
-      NombreContacto: name, Apellidos: Apellido, IdPaciente: 1, ID: contactId, direccion: address,
-      Edad: parseInt(age), Nacionalidad: nationality, Patologias: pathologies, Email: email
+  sendData(aseo, trat,punt, coment) {
+    return this.http.post('https://localhost:44354/api/evaluacion', {
+      aseo: parseInt(aseo), trato: parseInt(trat), puntualidad: parseInt(punt), comentarios: coment
     }).subscribe(
       (val) => {
         console.log("POST call successful value returned in body",
@@ -51,11 +50,9 @@ export class EvaluacionServicioService {
   }
 
 
-  modificar(id, name, Apellido, contactoId, age, nationality, address, pathologies, email) {
-    return this.http.put('http://localhost:8081/api/contacto/' + id, {
-      IdContacto: id,
-      NombreContacto: name, Apellidos: Apellido, IdPaciente: 1, ID: contactoId, direccion: address,
-      Edad: parseInt(age), Nacionalidad: nationality, Patologias: parseInt(pathologies), Email: email
+  modificar(id, aseo, trat, punt, coment) {
+    return this.http.put('https://localhost:44354/api/evaluacion' + id, {
+      Id: id, aseo: parseInt(aseo), trato: parseInt(trat), puntualidad: parseInt(punt), comentarios: coment
     }).subscribe(
       (val) => {
         console.log("PUT call successful value returned in body",

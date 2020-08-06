@@ -1,5 +1,5 @@
 export class HistorialClinico {
-  idHistorial: number;
+  idhistorial: number;
   fecha: string;
   procedimientoMedico: string;
   tratamiento: string;
@@ -7,7 +7,7 @@ export class HistorialClinico {
   cedulaPersonal: string;
 
   constructor(id, fecha, procedimiento, trat, paciente, personal) {
-    this.idHistorial = id;
+    this.idhistorial = id;
     this.fecha = fecha;
     this.procedimientoMedico = procedimiento;
     this.tratamiento = trat;
