@@ -1,4 +1,3 @@
-<p>historial-clinico works!</p>
 <form>
   <h3>Historial Clínico</h3>
 
@@ -19,11 +18,12 @@
         <tr *ngFor="let item of historialList">
           <th scope="row">{{ item.idhistorial }}</th>
           <td>{{ item.cedulapaciente }}</td>
-          <td>{{ item.cedulaPersonal }}</td>
-          <td>{{ item.fecha }}</td>
-          <td>{{ item.procedimientoMedico }}</td>
+        </tr>
+        <tr *ngFor="let item of historiaList">
+          <td>scope="row">{{ item.cedulapersonal }}</td>
+          <td>{{ item.fechahistoria }}</td>
+          <td>{{ item.nombreprocedimiento }}</td>
           <td>{{ item.tratamiento }}</td>
-
         </tr>
       </tbody>
     </table>
@@ -32,3 +32,4 @@
   <button type="button" class="btn btn-dark btn-primary-spacing" btn-sm routerLink="/paciente"> Atrás</button>
 
 </form>
+

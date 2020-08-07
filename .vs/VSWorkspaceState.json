@@ -6,11 +6,11 @@
     "\\WEB\\HOSPITEC\\src",
     "\\WEB\\HOSPITEC\\src\\app",
     "\\WEB\\HOSPITEC\\src\\app\\components",
+    "\\WEB\\HOSPITEC\\src\\app\\components\\doctor",
     "\\WEB\\HOSPITEC\\src\\app\\components\\paciente",
-    "\\WEB\\HOSPITEC\\src\\app\\components\\paciente\\evaluacion-servicio",
     "\\WEB\\HOSPITEC\\src\\app\\services",
     "\\WEB\\HOSPITEC\\src\\app\\services\\paciente"
   ],
-  "SelectedNode": "\\WEB\\HOSPITEC\\src\\app\\services\\paciente\\evaluacion-servicio.service.ts",
+  "SelectedNode": "\\WEB\\HOSPITEC\\src\\app\\components\\paciente\\reservacion",
   "PreviewInSolutionExplorer": false
 }
