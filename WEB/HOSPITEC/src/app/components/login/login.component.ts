@@ -15,20 +15,21 @@ export class LoginComponent implements OnInit {
   loginForm = new FormGroup({
     email: new FormControl(''),
     password: new FormControl(''),
-    puesto: new FormControl('')
+    cedula: new FormControl('')
   });
   constructor(private authSvc: AuthService, private router: Router) { }
 
   async login(){
-    const {email, password} = this.loginForm.value;
+    const {email, password, cedula} = this.loginForm.value;
     var puesto = $("#loginForm input[type='radio']:checked").val();
+    //var cedula = $(document.getElementById('cedula')).val();
     var firebase = this.authSvc;
-    const user = await firebase.login(email, password, puesto);
+    const user = await firebase.login(email, password, puesto,cedula);
     firebase.position=puesto;
+    firebase.cedula=cedula;
     if (user){
       this.router.navigate(['/']);
     }
-    console.log(email, password, puesto);
   }
   ngOnInit(): void {
   }

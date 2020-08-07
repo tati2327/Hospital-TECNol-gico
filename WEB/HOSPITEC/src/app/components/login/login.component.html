@@ -12,6 +12,10 @@
                 <input type="mail" class="form-control" #mail formControlName="email">
               </div>
               <div class="form-group col-md-auto">
+                <label for="cedula">Cédula</label>
+                <input type="text" class="form-control" #cedula  formControlName="cedula">
+              </div>
+              <div class="form-group col-md-auto">
                 <label for="contra">Contraseña</label>
                 <input type="password" class="form-control" #contra  formControlName="password">
               </div>
@@ -21,10 +25,15 @@
               <input type="radio" name="same" value="personal"  ng-model="puesto"> Personal
             </div>
 
+          <div class="row">
             <div class="form-group col-md-auto">
               <button type="submit" class="btn btn-dark btn-primary-spacing" btn-sm #log (click)="login()"> Ingresar</button>
             </div>
 
+            <div class="form-group col-md-auto">
+              <button type="submit" class="btn btn-dark btn-primary-spacing" btn-sm #log routerLink='/paciente'> Registrarse</button>
+            </div>
+          </div>
           </form>
         </div>
       </div>

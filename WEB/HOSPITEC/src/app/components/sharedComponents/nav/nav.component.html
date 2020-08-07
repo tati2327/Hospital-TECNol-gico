@@ -8,7 +8,7 @@
   <div class="row">
 
     <div>
-      <button class="btn btn-dark menus" type="button" routerLink="/">Home</button>
+      <button class="btn btn-dark menus"  *ngIf="!(user) || (user)" type="button" routerLink="/">Home</button>
     </div>
 
     <div>
@@ -36,7 +36,7 @@
 
     </div>
 
-    <div class="dropdown extra" *ngIf="(user)">
+    <div class="dropdown extra" *ngIf="!(user) || (user)">
 
       <button class="btn btn-secondary dropdown-toggle menus" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Paciente

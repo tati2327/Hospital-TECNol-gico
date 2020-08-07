@@ -10,17 +10,19 @@ import { Observable, Subject } from 'rxjs';
 })
 export class AuthService {
 
+  cedula;
   public position="";
   public user:User;
   constructor(public afAuth: AngularFireAuth) {
 
    }
 
-  async login(email:string, password:string, position:string){
+  async login(email:string, password:string, position:string, cedula:number){
     try{
       const result = await this.afAuth.signInWithEmailAndPassword(email,password);
+      this.cedula=cedula;
       this.position=position;
-      console.log("SUCCESS", position);
+      console.log("SUCCESS", position, cedula);
       return result;
     }
     catch(error){
@@ -45,6 +47,9 @@ export class AuthService {
     await this.afAuth.signOut();
   }
 
+  getCurrentUserId(){
+    return this.cedula;
+  }
 
   getCurrentUser(){
     return this.afAuth.authState.pipe(first()).toPromise();

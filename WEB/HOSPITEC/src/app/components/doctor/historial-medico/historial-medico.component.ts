@@ -3,6 +3,8 @@ import { HistorialClinicoService } from 'src/app/services/paciente/historial-cli
 import { HistorialClinico } from 'src/app/models/paciente/historial-clinico';
 
 import { of } from 'rxjs';
+import { HistoriaMedicaService } from 'src/app/services/paciente/historia-medica.service';
+import { HistoriaMedica } from 'src/app/models/paciente/historia-medica';
 declare var $: any;
 
 @Component({
@@ -12,13 +14,17 @@ declare var $: any;
 })
 export class HistorialMedicoComponent implements OnInit {
 
-  constructor(public historialService: HistorialClinicoService) { }
+  constructor(public historialService: HistorialClinicoService, public historia: HistoriaMedicaService) { }
   historialList: HistorialClinico[] = [];
-
+  historiaList: HistoriaMedica[] = [];
   ngOnInit(): void {
-    this.historialService.getHistorial().subscribe((pacientes) => {
-      this.historialList = pacientes;
+
+    this.historialService.getHistorial().subscribe((historias) => {
+      this.historialList = historias;
+    })
+
+    this.historia.getHistoria().subscribe((historia) => {
+      this.historiaList = historia;
     })
   }
-
 }
