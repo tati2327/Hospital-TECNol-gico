@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -8,18 +11,16 @@ import {AuthService} from 'src/app/services/auth.service';
 })
 export class NavComponent implements OnInit {
 
-  public isLogged = false;
-  puesto;
-  constructor(private authSvc:AuthService) { }
+  user;
+  public user$: Observable<any> = this.authSvc.afAuth.user;
+  constructor(public authSvc:AuthService, private router:Router) { }
 
   async ngOnInit(){
-    console.log('navbar');
-    const user = await this.authSvc.getCurrentUser();
-    const puesto = this.authSvc.getPosition();
-    if (user){
-      this.isLogged = true;
-      this.puesto = puesto;
-      console.log('user', user);
-    }
+  }
+
+  async logout(){
+    console.log(this.authSvc.getPosition());
+    await this.authSvc.logout();
+    this.router.navigate(['/login'])
   }
 }

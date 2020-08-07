@@ -3,13 +3,14 @@ import {auth} from 'firebase/app';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {User} from 'firebase';
 import { first } from 'rxjs/operators';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  position:string;
+  public position="";
   public user:User;
   constructor(public afAuth: AngularFireAuth) {
 
@@ -18,8 +19,8 @@ export class AuthService {
   async login(email:string, password:string, position:string){
     try{
       const result = await this.afAuth.signInWithEmailAndPassword(email,password);
-      console.log("SUCCESS");
       this.position=position;
+      console.log("SUCCESS", position);
       return result;
     }
     catch(error){
@@ -40,14 +41,16 @@ export class AuthService {
   }
 
   async logout(){
+    this.position="";
     await this.afAuth.signOut();
   }
+
 
   getCurrentUser(){
     return this.afAuth.authState.pipe(first()).toPromise();
   }
 
-  getPosition(){
+  getPosition() {
     return this.position;
   }
 }

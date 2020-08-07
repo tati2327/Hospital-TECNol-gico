@@ -3,53 +3,71 @@
     Hospital TECNológico
   </h5>
 
-  <nav class="my-2 my-md-0 mr-md-3 navBar ">
+<nav class="my-2 my-md-0 mr-md-3 navBar" *ngIf="user$ | async as user">
 
-    <div class="row">
+  <div class="row">
 
     <div>
       <button class="btn btn-dark menus" type="button" routerLink="/">Home</button>
     </div>
 
-    <div class="dropdown extra" >
-      <button class="btn btn-secondary dropdown-toggle menus" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Personal Administrativo
-      </button>
-      <div class="dropdown-menu menus" aria-labelledby="dropdownMenu2" >
-        <button class="dropdown-item menus" type="button" routerLink="/salon">Gestion de Salones</button>
-        <button class="dropdown-item menus" type="button" routerLink="/medical-equipment">Gestion de Equipo Médico</button>
-        <button class="dropdown-item menus" type="button" routerLink="/cama">Gestion de Camas</button>
-        <button class="dropdown-item menus" type="button" routerLink="/procedimientosMedicos">Gestion de Procedimientos Médicos</button>
-        <button class="dropdown-item menus" type="button" routerLink="/personal">Gestión de Personal</button>
-        <button class="dropdown-item menus" type="button" routerLink="/medicine">Sincronizar con COTEC-2020</button>
-        <button class="dropdown-item menus" type="button" routerLink="/medicine">Reporte Áreas de Mejora</button>
-
-      </div>
+    <div>
+      <button class="btn btn-dark menus" type="button" routerLink="/login" *ngIf="!(user)">Login</button>
     </div>
 
-    <div class="dropdown extra">
+    <div class="dropdown extra" >
+
+      <button class="btn btn-secondary dropdown-toggle menus" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" *ngIf="(user && authSvc.getPosition()=='personal')">
+        Personal Administrativo
+      </button>
+
+      <div class="dropdown-menu menus" aria-labelledby="dropdownMenu2" >
+
+          <button class="nav-link dropdown-item menus" type="button" routerLink="/salon">Gestion de Salones</button>
+          <button class="dropdown-item menus" type="button" routerLink="/medical-equipment">Gestion de Equipo Médico</button>
+          <button class="dropdown-item menus" type="button" routerLink="/cama">Gestion de Camas</button>
+          <button class="dropdown-item menus" type="button" routerLink="/procedimientosMedicos">Gestion de Procedimientos Médicos</button>
+          <button class="dropdown-item menus" type="button" routerLink="/personal">Gestión de Personal</button>
+          <button class="dropdown-item menus" type="button" routerLink="/medicine">Sincronizar con COTEC-2020</button>
+          <button class="dropdown-item menus" type="button" routerLink="/medicine">Reporte Áreas de Mejora</button>
+
+      </div>
+
+
+    </div>
+
+    <div class="dropdown extra" *ngIf="(user)">
+
       <button class="btn btn-secondary dropdown-toggle menus" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Paciente
       </button>
+
       <div class="dropdown-menu menus" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item menus" routerLink="/paciente">Crear Cuenta</a>
         <a class="dropdown-item menus" routerLink="/reservacion">Crear Reservación</a>
         <a class="dropdown-item menus" routerLink="/historial">Ver Historial Clínico</a>
         <a class="dropdown-item menus" routerLink="/evaluacion">Evaluar Servicio Recibido</a>
       </div>
+
     </div>
 
-    <div class="dropdown extra">
+    <div class="dropdown extra" *ngIf="(user && authSvc.getPosition()=='personal')">
+
       <button class="btn btn-secondary dropdown-toggle menus" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Doctor
       </button>
+
       <div class="dropdown-menu menus" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item menus" routerLink="/gestionPacientes">Paciente</a>
         <a class="dropdown-item menus" routerLink="/historialMedico">Historial Clínico</a>
       </div>
     </div>
 
+    <div>
+      <button class="btn btn-dark menus" type="button" (click)="logout()"routerLink="/" *ngIf="(user)">Logout</button>
+    </div>
   </div>
 
-  </nav>
+
+</nav>
 </div>

@@ -5,7 +5,7 @@
       <div class="mystyle" >
         <div class="col-md-auto">
           <h3>Inicio de sesión</h3>
-          <form [formGroup]='loginForm' (ngSubmit)="login()">
+          <form id="loginForm" [formGroup]='loginForm' (ngSubmit)="login()">
             <div class="form-group col-md-03">
               <div class="form-group col-md-auto">
                 <label for="mail">Mail</label>
@@ -17,8 +17,8 @@
               </div>
 
 
-              <input type="radio" name="same" value="personal" ng-model="puesto"> Paciente
-              <input type="radio" name="same" value="paciente"  ng-model="puesto"> Personal
+              <input type="radio" name="same" value="paciente" ng-model="puesto"> Paciente
+              <input type="radio" name="same" value="personal"  ng-model="puesto"> Personal
             </div>
 
             <div class="form-group col-md-auto">

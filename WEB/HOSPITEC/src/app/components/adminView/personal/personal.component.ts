@@ -1,5 +1,6 @@
 import { Component, AfterViewChecked , OnDestroy } from '@angular/core';
 import {PersonalService} from 'src/app/services/administracion/personal.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 declare var $: any;
 
@@ -11,20 +12,20 @@ declare var $: any;
 export class PersonalComponent implements AfterViewChecked, OnDestroy {
 
   listaPersonal=[]
-  constructor(private personalService:PersonalService) { }
+  constructor(private personalService:PersonalService, private authSvc:AuthService) { }
 
   ngAfterViewChecked(): void {
-    
+
     var personalService=this.personalService;
     var llavePrimaria;
-    
+    var firebase = this.authSvc;
     this.personalService.getPersonal().subscribe((personal) =>{
     this.listaPersonal=personal;})
-    
 
 
-      
-    /* 
+
+
+    /*
     Proyecto 2 Bases de Datos: Hospital TECNológico
     Vista Administracion.
     Objetivo: Crear procedimientos medicos, aqui se llama la funcion mediante la cual
@@ -37,14 +38,15 @@ export class PersonalComponent implements AfterViewChecked, OnDestroy {
       $("#sendCreatedPersonal").click(function() {
         var cedula=$("#cedula").val();
         var nombre=$("#nombre").val();
-        var apellidos= $("#apellidos").val();   
+        var apellidos= $("#apellidos").val();
         var telefono=$("#telefono").val();
         var nacimiento=$("#nacimiento").val();
         var direccion=$("#direccion").val();
         var ingreso=$("#ingreso").val();
         var puesto=$("#puesto").val();
+        var mail= $("#mail").val();
         var contraseña=$("#contraseña").val();
-        
+        firebase.register(mail,contraseña);
         personalService.sendData(cedula, nombre,apellidos,telefono,nacimiento,direccion, ingreso,puesto,contraseña);
       });
     })
@@ -62,10 +64,10 @@ export class PersonalComponent implements AfterViewChecked, OnDestroy {
         var puesto=$row.find("td:eq(7)").text();
         var contraseña=$row.find("td:eq(8)").text();
         console.log(contraseña);
-        
+
         llavePrimaria=cedula;
 
-        
+
         $("#cedulaModif").val(cedula);
         $("#nombreModif").val(nombre);
         $("#apellidosModif").val(apellidos);
@@ -75,7 +77,7 @@ export class PersonalComponent implements AfterViewChecked, OnDestroy {
         $("#ingresoModif").val(ingreso);
         $("#puestoModif").val(puesto);
         $("#contraseñaModif").val(contraseña);
-       
+
 
       });
     })
@@ -84,34 +86,34 @@ export class PersonalComponent implements AfterViewChecked, OnDestroy {
       $("#sendModifiedPersonal").click(function() {
         var cedula=$("#cedulaModif").val();
         var nombre=$("#nombreModif").val();
-        var apellidos= $("#apellidosModif").val();   
+        var apellidos= $("#apellidosModif").val();
         var telefono=$("#telefonoModif").val();
         var nacimiento=$("#nacimientoModif").val();
         var direccion=$("#direccionModif").val();
         var ingreso=$("#ingresoModif").val();
         var puesto=$("#puestoModif").val();
         var contraseña=$("#contraseñaModif").val();
-        
-        personalService.modificar(llavePrimaria,cedula, nombre,apellidos,telefono,nacimiento,direccion, ingreso,puesto,contraseña); 
+
+        personalService.modificar(llavePrimaria,cedula, nombre,apellidos,telefono,nacimiento,direccion, ingreso,puesto,contraseña);
       });
     })
 
-    
-      /* 
+
+      /*
     Proyecto 2 Bases de Datos: Hospital TECNológico
     Vista Procedimientos Medicos.
-    Objetivo: Obtener la llave primaria de la fila que queremos eliminar para luego 
+    Objetivo: Obtener la llave primaria de la fila que queremos eliminar para luego
     utilizarla en la funcion en que se la enviamos al api.
     Autor-Autora: Pablo.
      */
     $(document).ready(function() {
       $(".deleteRows").click(function() {
         var $row = $(this).closest("tr");    // Find the row
-        llavePrimaria = $row.find("td:eq(0)").text(); // Find the text  
+        llavePrimaria = $row.find("td:eq(0)").text(); // Find the text
       });
     })
 
-      /* 
+      /*
     Proyecto 2 Bases de Datos: Hospital TECNológico
     Vista Procedimientos Medicos.
     Objetivo: Llamar la funcion que envia la llave primaria al api de la entidad
