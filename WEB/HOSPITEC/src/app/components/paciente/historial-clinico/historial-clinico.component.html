@@ -18,13 +18,17 @@
         <tr *ngFor="let item of historialList">
           <th scope="row">{{ item.idhistorial }}</th>
           <td>{{ item.cedulapaciente }}</td>
-        </tr>
-        <tr *ngFor="let item of historiaList">
-          <td>scope="row">{{ item.cedulapersonal }}</td>
+          <td>
+            <p *ngFor="let item of historiaList">
+          <td>{{ item.cedulapersonal }}</td>
           <td>{{ item.fechahistoria }}</td>
           <td>{{ item.nombreprocedimiento }}</td>
           <td>{{ item.tratamiento }}</td>
+          
+
+
         </tr>
+
       </tbody>
     </table>
   </div>
