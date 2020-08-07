@@ -65,7 +65,7 @@ export class PacienteComponent implements OnInit {
         //var dr = $("#moddoctorencargado").val();
         var est = $("#modEstado").val();
         var cont = $("#modContraseña").val();
-        var nac = $("#modNacimiento").val();
+        var nac = $("#modNacionalidad").val();
         var email = $("#modEmail").val();
         var int = $("#modInternado").val();
         var med = $("#modMedicacion").val();
