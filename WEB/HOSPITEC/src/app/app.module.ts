@@ -32,6 +32,8 @@ import { CamaComponent } from './components/adminView/cama/cama.component';
 import { ModificarCamaComponent } from './components/adminView/cama/modificar-cama/modificar-cama.component';
 import { LoginComponent } from './components/login/login.component';
 import { environment } from 'src/environments/environment';
+import { ModificarMedicalEquipmentComponent } from './components/adminView/medical-equipment/modificar-medical-equipment/modificar-medical-equipment.component';
+import { ModificarSalonComponent } from './components/adminView/salon/modificar-salon/modificar-salon.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,9 @@ import { environment } from 'src/environments/environment';
     ModificarDoctorComponent,
     CamaComponent,
     ModificarCamaComponent,
-    LoginComponent
+    LoginComponent,
+    ModificarMedicalEquipmentComponent,
+    ModificarSalonComponent
   ],
   imports: [
     BrowserModule,

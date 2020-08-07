@@ -9,25 +9,27 @@
           <form>
             <div class="form-group col-md-03">
               <div class="form-group col-md-auto">
-                <label for="nombreEquipo">Nombre del Equipo Médico</label>
-                <input type="text" class="form-control" #nombreEquipo>
+                <label for="idequipo">Id de Equipo Médico</label>
+                <input type="text" class="form-control" id="idequipo">
+              </div>
+              <div class="form-group col-md-auto">
+                <label for="nombreequipo">Nombre del Equipo Médico</label>
+                <input type="text" class="form-control" id="nombreequipo">
               </div>
               <div class="form-group col-md-auto">
                 <label for="proveedor">Nombre del Proveedor</label>
-                <input type="text" class="form-control" #proveedor>
+                <input type="text" class="form-control" id="proveedor">
               </div>
             </div>
             <div class="form-group col-md-auto">
               <div class="form-group ">
-                <label for="cantEquipo">Cantitad Disponible</label>
-                <input type="number" class="form-control" #cantEquipo>
+                <label for="cantequipo">Cantitad</label>
+                <input type="text" class="form-control" id="cantequipo">
               </div>
             </div>
 
             <div class="form-group col-md-auto">
-              <button type="button" class="btn btn-dark btn-primary-spacing" btn-sm> Ingresar</button>
-              <button type="button" class="btn btn-dark btn-primary-spacing" btn-sm> Modificar</button>
-              <button type="button" class="btn btn-dark btn-primary-spacing" btn-sm> Eliminar</button>
+              <button type="button" id="sendNewEquipment" class="btn btn-dark btn-primary-spacing" btn-sm> Ingresar</button>
             </div>
           </form>
         </div>
@@ -41,7 +43,8 @@
         <table class="table table-hover table-striped text"  data-pagination="true" id="makeEditable">
           <thead>
               <tr>
-                <th scope="col">Id</th>
+                <th scope="col">IdEquipo</th>
+                <th style="display: none;" scope="col">IdEquipo</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Proveedor</th>
                 <th scope="col">Cantidad</th>
@@ -50,12 +53,13 @@
           <tbody>
       
             <tr *ngFor="let item of listaEquipoMedico">
-              <th scope="row">{{ item.id }}</th>
+              <th scope="row">{{ item.idequipo }}</th>
+              <td style="display: none;">{{ item.idequipo }}</td>
               <td>{{ item.nombre }}</td>
               <td>{{ item.proveedor }}</td>
               <td>{{ item.cantidad }}</td>
               <td><a  data-toggle="modal" href="#" id="getModifyData" data-target="#edit" class="editTable">Editar</a>
-              <a  data-toggle="modal" href="#" id="getDeleteData" data-target="#delete" >Eliminar</a>
+              <a  data-toggle="modal" href="#" id="getDeleteData" data-target="#delete" class="deleteRows">Eliminar</a>
             </td>
           </tr>
           </tbody>
@@ -63,6 +67,50 @@
         </div>
     </div>
   </div>
+</div>
+
+<!--Modal para modificar un equipo medico-->
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header header">
+        <h5 class="modal-title" id="exampleModalLabel">MODIFICAR EQUIPO MÉDICO</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body back">
+        <app-modificar-medical-equipment></app-modificar-medical-equipment>
+     </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" id="sendModifiedEquipment" data-dismiss="modal" >Guardar cambios</button>
+     </div>
+   </div>
+ </div>
+</div>
+
+<!--Modal para eliminar un equipo medico-->
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header header">
+        <h5 class="modal-title" id="exampleModalLabel">ELIMINAR EQUIPO MÉDICO</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body back">
+        <div class="alert alert-danger" role="alert">
+          ¿Está seguro?
+        </div>
+     </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="sendDeletedEquipment" data-dismiss="modal">Eliminar</button>
+     </div>
+   </div>
+ </div>
 </div>
 
 

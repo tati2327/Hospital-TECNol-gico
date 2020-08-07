@@ -1,7 +1,7 @@
 <div class="container"> 
   <div class="row">
 
-    <div class="container col-md-6" >
+    <div class="container col-md-4" >
       <div class="mystyle" >
         <div class="col-md-auto">
           <h3>Gestión de Salones</h3>
@@ -10,65 +10,65 @@
             <div class="form-group">
               <div class="form-group col-md-auto">
                 <label for="nosalon">Número de Salón</label>
-                <input type="number" class="form-control" #nosalon>
+                <input type="text" class="form-control" id="nosalon">
               </div>
               <div class="form-group col-md-auto">
                 <label for="nombre">Nombre del Salón</label>
-                <input type="text" class="form-control" #nombre>
+                <input type="text" class="form-control" id="nombre">
               </div>
+            </div>
+            <div class="form-group col-md-auto">
+              <label for="tipo">Tipo de medicina</label>
+              <select class="form-control" id="tipo">
+                <option>Mujeres</option>
+                <option>Hombres</option>
+                <option>Niños(as)</option>
+              </select>
+            </div>
+            <div class="form-group col-md-auto">
+              <label for="piso">Número de Piso</label>
+              <input type="text" class="form-control" id="piso">
             </div>
             <div class="form-group">
               <div class="form-group col-md-auto">
-                <label for="cantcamas">Cantidad de Camas</label>
-                <input type="number" class="form-control" #cantcamas>
+                <label for="cantidadcamas">Cantidad de Camas</label>
+                <input type="text" class="form-control" id="cantidadcamas">
               </div>
-              <div class="form-group col-md-auto">
-                  <label for="piso">Número de Piso</label>
-                  <input type="number" class="form-control" #piso>
-              </div>
-              <div class="form-group col-md-auto">
-                  <label for="tipomedicina">Tipo de medicina</label>
-                  <select class="form-control" id="tipomedicina">
-                    <option>Mujeres</option>
-                    <option>Hombres</option>
-                    <option>Niños(as)</option>
-                  </select>
-                </div>
             </div>
 
             <div class="col-md-auto">
-              <button type="button" class="btn btn-dark btn-primary-spacing" btn-sm> Ingresar</button>
-              <button type="button" class="btn btn-dark btn-primary-spacing" btn-sm> Modificar</button>
-              <button type="button" class="btn btn-dark btn-primary-spacing" btn-sm> Eliminar</button>
+              <button type="button" id="sendNewSalon" class="btn btn-dark btn-primary-spacing" btn-sm> Ingresar</button>
             </div>
           </form>
         </div>
       </div>
     </div>
 
-    <div class="container col-md-6" id="content" #content>
+    <div class="container col-md-8" id="content" #content>
       <div class="mystyle">
         <h3 class="h3">Salones</h3>
         <table class="table table-hover table-striped text"  data-pagination="true" id="makeEditable">
           <thead>
               <tr>
                 <th scope="col">No. Salon</th>
+                <th style="display: none;" scope="col">No. Salon</th>
                 <th scope="col">Nombre</th>
-                <th scope="col">Cant. Camas</th>
-                <th scope="col">Piso</th>
                 <th scope="col">Tipo Medicina</th>
+                <th scope="col">Piso</th>
+                <th scope="col">Cant. Camas</th>
               </tr>
           </thead>
           <tbody>
       
-            <tr *ngFor="let item of listaSalon">
-              <th scope="row">{{ item.id }}</th>
-              <td>{{ item.name }}</td>
-              <td>{{ item.description }}</td>
-              <td>{{ item.symptoms }}</td>
-              <td>{{ item.treatment }}</td>
+            <tr *ngFor="let item of listaSalones">
+              <th scope="row">{{ item.nosalon }}</th>
+              <td style="display: none;">{{ item.nosalon }}</td>
+              <td>{{ item.nombre }}</td>
+              <td>{{ item.tipo }}</td>
+              <td>{{ item.piso }}</td>
+              <td>{{ item.cantidadcamas }}</td>
               <td><a  data-toggle="modal" href="#" id="getModifyData" data-target="#edit" class="editTable">Editar</a>
-              <a  data-toggle="modal" href="#" id="getDeleteData" data-target="#delete" >Eliminar</a>
+              <a  data-toggle="modal" href="#" id="getDeleteData" data-target="#delete"  class="deleteRows">Eliminar</a>
             </td>
           </tr>
           </tbody>
@@ -76,6 +76,50 @@
         </div>
     </div>
   </div>
+</div>
+
+ <!--Modal para modificar un salon-->
+ <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header header">
+        <h5 class="modal-title" id="exampleModalLabel">MODIFICAR SALON</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body back">
+        <app-modificar-salon></app-modificar-salon>
+     </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" id="sendModifiedSalon" data-dismiss="modal" >Guardar cambios</button>
+     </div>
+   </div>
+ </div>
+</div>
+
+<!--Modal para eliminar un salon-->
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header header">
+        <h5 class="modal-title" id="exampleModalLabel">ELIMINAR SALON</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body back">
+        <div class="alert alert-danger" role="alert">
+          ¿Está seguro?
+        </div>
+     </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="sendDeletedSalon" data-dismiss="modal">Eliminar</button>
+     </div>
+   </div>
+ </div>
 </div>
 
 

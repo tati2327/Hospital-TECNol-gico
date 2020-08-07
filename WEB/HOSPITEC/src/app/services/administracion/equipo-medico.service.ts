@@ -19,8 +19,7 @@ export class EquipoMedicoService {
 
   sendData(ideq, nom, prov, cant) {
     return this.http.post('https://localhost:5001/api/equipomedicos', {
-      idequipo: ideq, nombre: nom, proveedor: prov, cantidad: cant
-    }).subscribe(
+      idequipo: Number(ideq), nombre: nom, proveedor: prov, cantidad: Number(cant)}).subscribe(
       (val) => {
         console.log("POST call successful value returned in body",
           response => {
@@ -33,8 +32,9 @@ export class EquipoMedicoService {
   }
 
 
-  delete(idequipo) {
-    return this.http.delete('https://localhost:5001/api/equipomedicos/' + idequipo).subscribe(
+  delete(llavePrimaria) {
+    var ideq=Number(llavePrimaria);
+    return this.http.delete('https://localhost:5001/api/equipomedicos/' + ideq).subscribe(
       (val) => {
         console.log("DELETE call successful value returned in body",
           val);
@@ -48,10 +48,9 @@ export class EquipoMedicoService {
   }
 
 
-  modificar(ideq, nom, prov, cant) {
-    return this.http.put('https://localhost:5001/api/equipomedicos/' + ideq, {
-      idequipo: ideq, nombre: nom, proveedor: prov, cantidad: cant
-    }).subscribe(
+  modificar(llavePrimaria, ideq, nom, prov, cant) {
+    return this.http.put('https://localhost:5001/api/equipomedicos/' + Number(llavePrimaria), {
+       idequipo: Number(ideq), nombre: nom, proveedor: prov, cantidad: Number(cant) }).subscribe(
       (val) => {
         console.log("PUT call successful value returned in body",
           val);

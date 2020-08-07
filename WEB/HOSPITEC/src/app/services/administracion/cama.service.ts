@@ -17,9 +17,9 @@ export class CamaService {
 
   }
 
-  sendData(noCa, tipCa, noSa, dispn) {
+  sendData(noca, tipca, nosa, dispn) {
     return this.http.post('https://localhost:5001/api/camas', {
-      nocama: Number(noCa), tipo: tipCa, nosalon: Number(noSa), disponibilidad: dispn}).subscribe(
+      nocama: Number(noca), tipo: tipca, nosalon: Number(nosa), disponibilidad: dispn}).subscribe(
         (val) => {
         console.log("POST call successful value returned in body",
           response => {
@@ -32,8 +32,8 @@ export class CamaService {
   }
 
 
-  delete(noCama) {
-    var nocam=Number(noCama);
+  delete(nocama) {
+    var nocam=Number(nocama);
     return this.http.delete('https://localhost:5001/api/camas/' + nocam).subscribe(
       (val) => {
         console.log("DELETE call successful value returned in body",
@@ -48,9 +48,9 @@ export class CamaService {
   }
 
 
-  modificar(llavePrimaria,noCa, tipCa, noSa, dispn) {
+  modificar(llavePrimaria, noca, tipca, nosa, dispn) {
     return this.http.put('https://localhost:5001/api/camas/' + Number(llavePrimaria), {
-      nocama: Number(noCa), tipo: tipCa, nosalon: Number(noSa), disponibilidad: dispn
+      nocama: Number(noca), tipo: tipca, nosalon: Number(nosa), disponibilidad: dispn
     }).subscribe(
       (val) => {
         console.log("PUT call successful value returned in body",

@@ -1,13 +1,13 @@
 export class Cama {
-    noCama: string
-    tipoCama: string;
-    noSalon: string;
+    nocama: string
+    tipocama: string;
+    nosalon: string;
     disponible: string;
   
-    constructor(noCa, tipCa, noSa, dispn) {
-      this.noCama = noCa;
-      this.tipoCama = tipCa;
-      this.noSalon = noSa;
+    constructor(noca, tipca, nosa, dispn) {
+      this.nocama = noca;
+      this.tipocama = tipca;
+      this.nosalon = nosa;
       this.disponible = dispn;
     }
   }

@@ -6,9 +6,10 @@
 .mystyle {
     align-items: center;
     box-sizing: content-box;  
-    width: 500px;
-    height: 500px;
+    width: 550;
+    height: 600px;
     border: 2px dotted black;
-    padding: 20px;
+    padding: 10px;
     border-radius: 30px
 }
+

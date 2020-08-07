@@ -16,13 +16,10 @@ export class CamaComponent implements OnInit,DoCheck {
   listaCamas = []
 
   ngOnInit(): void {
-
-
     /** Ingresar las camas en la lista para mostrar tablas */
     this.camaService.getCamas().subscribe((camas) => {
       this.listaCamas = camas;
     })
-
   }
 
   ngDoCheck(): void{
@@ -36,22 +33,22 @@ export class CamaComponent implements OnInit,DoCheck {
      * FUNCION ENVIAR INFORMACION
      */
     $(document).ready(function () {
-      $("#enviarCamaNueva").click(function () {
-        var noCama = $("#nocama").val();
+      $("#sendNewBed").click(function () {
+        var nocama = $("#nocama").val();
         var tipo = $("#tipocama").val();
 
-        var tipoCama:string;
+        var tipocama:string;
         console.log(tipo);
         if(tipo=="Normal"){
           console.log("toy normal");
-          tipoCama="Normal";
+          tipocama="Normal";
         }
         if(tipo=="UCI"){
           console.log("toy uci");
-          tipoCama="UCI";
+          tipocama="UCI";
         }
 
-        var noSalon = $("#nosalon").val();
+        var nosalon = $("#nosalon").val();
         var disponilidad = $("#disponible").val();
         var disponible:boolean;
         console.log(disponilidad);
@@ -63,26 +60,23 @@ export class CamaComponent implements OnInit,DoCheck {
           console.log("no toy free");
           disponible=false;
         }
-        camaService.sendData(noCama, tipoCama, noSalon, disponible);
+        camaService.sendData(nocama, tipocama, nosalon, disponible);
       });
     })
-
-   //******************************************************************************************** */
 
     $(document).ready(function() {
       $(".editTable").on('click',function() {
         var $row = $(this).closest("tr");    // Find the row
-        var noCama = $row.find("td:eq(0)").text(); // Find the text
+        var nocama = $row.find("td:eq(0)").text(); // Find the text
         var tipo=$row.find("td:eq(1)").text();
-        var noSalon=$row.find("td:eq(2)").text();
+        var nosalon=$row.find("td:eq(2)").text();
         var disponibilidad=$row.find("td:eq(3)").text();
-        llavePrimaria=noCama;
-        console.log(noCama);
-        $("#nocamaModif").val(noCama);
+        llavePrimaria=nocama;
+        console.log(nocama);
+        $("#nocamaModif").val(nocama);
         $("#tipocamaModif").val(tipo);
-        $("#nosalonModif").val(noSalon);
+        $("#nosalonModif").val(nosalon);
         $("#disponibleModif").val(disponibilidad );
-
       });
     })
     
@@ -94,19 +88,19 @@ export class CamaComponent implements OnInit,DoCheck {
      */
     $(document).ready(function () {
       $("#sendModifiedBed").click(function () {
-        var noCama = $("#nocamaModif").val();
+        var nocama = $("#nocamaModif").val();
         var tipo = $("#tipocamaModif").val();
         
-        var tipoCama:string;
+        var tipocama:string;
         console.log(tipo);
         if(tipo=="Normal"){
-          tipoCama="Normal";
+          tipocama="Normal";
         }
         if(tipo=="UCI"){
-          tipoCama="UCI";
+          tipocama="UCI";
         }
 
-        var noSalon = $("#nosalonModif").val();
+        var nosalon = $("#nosalonModif").val();
 
         var disponilidad = $("#disponibleModif").val();
         var disponible:boolean;
@@ -117,7 +111,7 @@ export class CamaComponent implements OnInit,DoCheck {
         if(disponilidad=="No"){
           disponible=false;
         }
-        camaService.modificar(llavePrimaria,noCama, tipoCama, noSalon, disponible);
+        camaService.modificar(llavePrimaria,nocama, tipocama, nosalon, disponible);
       });
     })
     

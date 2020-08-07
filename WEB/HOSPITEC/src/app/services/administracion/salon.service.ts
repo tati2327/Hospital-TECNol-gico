@@ -12,14 +12,14 @@ export class SalonService {
 
   constructor(private http: HttpClient) { }
 
-  getEquipoMedico(): Observable<Salon[]> {
+  getSalones(): Observable<Salon[]> {
     return this.http.get<Salon[]>('https://localhost:5001/api/salons');
 
   }
 
   sendData(nosa, nom, pis, tipme, cantca) {
     return this.http.post('https://localhost:5001/api/salons', {
-      nosalon: nosa, nombre: nom, piso: pis, tipomedicina: tipme, cantcamas: cantca
+      nosalon: Number(nosa), nombre: nom, piso: pis, tipo: tipme, cantidadcamas: Number(cantca)
     }).subscribe(
       (val) => {
         console.log("POST call successful value returned in body",
@@ -33,8 +33,8 @@ export class SalonService {
   }
 
 
-  delete(nosalon) {
-    return this.http.delete('https://localhost:5001/api/salons/' + nosalon).subscribe(
+  delete(llavePrimaria) {
+    return this.http.delete('https://localhost:5001/api/salons/' + Number(llavePrimaria)).subscribe(
       (val) => {
         console.log("DELETE call successful value returned in body",
           val);
@@ -48,10 +48,9 @@ export class SalonService {
   }
 
 
-  modificar(nosa, nom, pis, tipme, cantca) {
-    return this.http.put('https://localhost:5001/api/salons/' + nosa, {
-      nosalon: nosa, nombre: nom, piso: pis, tipomedicina: tipme, cantcamas: cantca
-    }).subscribe(
+  modificar(llavePrimaria, nosa, nom, pis, tipme, cantca) {
+    return this.http.put('https://localhost:5001/api/salons/' + Number(llavePrimaria), {
+      nosalon: Number(nosa), nombre: nom, piso: pis, tipo: tipme, cantidadcamas: Number(cantca)}).subscribe(
       (val) => {
         console.log("PUT call successful value returned in body",
           val);
