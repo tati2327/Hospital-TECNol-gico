@@ -29,6 +29,7 @@ import { ModificarPersonalComponent } from './components/adminView/personal/modi
 import { ModificarDoctorComponent } from './components/doctor/gestion-paciente/modificar/modificar.component';
 import { CamaComponent } from './components/adminView/cama/cama.component';
 import { ModificarCamaComponent } from './components/adminView/cama/modificar-cama/modificar-cama.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { ModificarCamaComponent } from './components/adminView/cama/modificar-ca
     ModificarPersonalComponent,
     ModificarDoctorComponent,
     CamaComponent,
-    ModificarCamaComponent
+    ModificarCamaComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

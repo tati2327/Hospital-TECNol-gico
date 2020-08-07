@@ -13,6 +13,7 @@ import { ProcedimientosMedicosComponent } from './components/adminView/procedimi
 import { PersonalComponent} from './components/adminView/personal/personal.component';
 import { HistorialMedicoComponent} from './components/doctor/historial-medico/historial-medico.component';
 import { CamaComponent } from './components/adminView/cama/cama.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   {path: '', component:HomepageComponent},
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path: 'gestionPacientes', component:GestionPacienteComponent},
   {path: 'historialMedico', component:HistorialMedicoComponent},
   {path: 'personal', component: PersonalComponent},
+  {path: 'login', component: LoginComponent}
 ];
 
 @NgModule({

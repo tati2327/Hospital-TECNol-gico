@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "hospitec-f301c": {
+      "hosting": {
+        "HOSPITEC": [
+          "hospitec-f301c"
+        ]
+      }
+    }
+  }
+}
