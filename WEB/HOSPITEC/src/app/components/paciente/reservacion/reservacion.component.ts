@@ -73,20 +73,30 @@ export class ReservacionComponent implements OnInit {
       });
     })
 
+  }
+
+  ngDoCheck(): void {
+
+    var llavePrimaria;
+    var init = this.reservacionService;
+
     $(document).ready(function () {
-      $("#getDeleteData").click(function () {
+      $(".deleteRows").click(function () {
         var $row = $(this).closest("tr");    // Find the row
-        var primaryKeyToDelete = $row.find("td:eq(0)").text(); // Find the text
-        console.log("a");
-        alert("a");
+        llavePrimaria = $row.find("td:eq(0)").text(); // Find the text  
       });
     })
 
+
     $(document).ready(function () {
       $("#deleteReservacion").click(function () {
-        return /*init.delete(primaryKeyToDelete)*/;
+        var $row = $(this).closest("tr");    // Find the row
+        console.log(llavePrimaria);
+        init.delete(llavePrimaria);
       });
     })
+
+
 
   }
 

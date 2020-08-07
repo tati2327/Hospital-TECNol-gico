@@ -23,10 +23,6 @@ export class EvaluacionServicioComponent implements OnInit {
         var trato = $("#trato").val();
         var punt = $("#puntualidad").val();
         var comen = $("#comentarios").val();
-        alert(aseo);
-        alert(trato);
-        alert(punt);
-        alert(comen);
         return init.sendData(aseo,trato,punt,comen);
       });
     })

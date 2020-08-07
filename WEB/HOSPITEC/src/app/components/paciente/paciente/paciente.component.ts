@@ -98,20 +98,31 @@ export class PacienteComponent implements OnInit {
       });
     })
 
+  }
+
+  ngDoCheck(): void {
+
+    var llavePrimaria;
+    var init = this.pacienteService;
+    var init2 = this.pacientesql;
+
     $(document).ready(function () {
-      $("#Josu").click(function () {
+      $(".deleteRows").click(function () {
         var $row = $(this).closest("tr");    // Find the row
-        var primaryKeyToDelete = $row.find("td:eq(0)").text(); // Find the text
-        console.log("a");
-        alert("a");
+        llavePrimaria = $row.find("td:eq(2)").text(); // Find the text  
       });
     })
 
+
     $(document).ready(function () {
       $("#deletePatient").click(function () {
-        return /*init.delete(primaryKeyToDelete)*/;
+        var $row = $(this).closest("tr");    // Find the row
+        console.log(llavePrimaria);
+        init2.delete(llavePrimaria), init.delete(llavePrimaria) ;
       });
     })
+
+
 
   }
 
