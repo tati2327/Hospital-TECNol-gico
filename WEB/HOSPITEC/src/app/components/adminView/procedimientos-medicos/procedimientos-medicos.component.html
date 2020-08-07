@@ -89,16 +89,3 @@
     </div>
   </div>
  </div>
- <script>
-    $("#getModifyData").click(function() {
-      var $row = $(this).closest("tr");    // Find the row
-      var col1 = $row.find("td:eq(0)").text(); // Find the text
-      var col2=$row.find("td:eq(1)").text();
-
-      
-      $("#nombreModificado").val(col1);
-      $("#recuperacionModificado").val(col2);
-
-
-    });
- </script>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,OnDestroy,DoCheck } from '@angular/core';
 import { CamaService } from 'src/app/services/administracion/cama.service';
 
 import { of } from 'rxjs';
@@ -9,38 +9,25 @@ declare var $: any;
   templateUrl: './cama.component.html',
   styleUrls: ['./cama.component.css']
 })
-export class CamaComponent implements OnInit {
+export class CamaComponent implements OnInit,DoCheck {
 
   constructor( public camaService: CamaService) { }
   
   listaCamas = []
 
   ngOnInit(): void {
-    var camaService = this.camaService;
-    var llavePrimaria;
+
 
     /** Ingresar las camas en la lista para mostrar tablas */
     this.camaService.getCamas().subscribe((camas) => {
       this.listaCamas = camas;
     })
 
-    /** Proyecto 2 Bases de Datos: Hospital TECNológico
-        Vista de gestion de camas.
-        Objetivo: Modificar una cama
-        Autor-Autora: Tatiana.
-        Entradas:noCama, tipo, noSalon, disponilidad 
-     */
-    $(document).ready(function () {
-      $("#enviarModificacionCama").click(function () {
-        var noCama = $("#noCama").val();
-        var tipo = $("#tipoCama").val();
-        var noSalon = $("#noSalon").val();
-        var disponilidad = $("#disponible").val();
-        alert("Se ha modificado la cama");
-        camaService.modificar(noCama, tipo, noSalon, disponilidad);
-      });
-    })
+  }
 
+  ngDoCheck(): void{
+    var camaService = this.camaService;
+    var llavePrimaria;
     /** Proyecto 2 Bases de Datos: Hospital TECNológico
         Vista de gestion de camas.
         Objetivo: crear una nueva cama
@@ -51,37 +38,86 @@ export class CamaComponent implements OnInit {
     $(document).ready(function () {
       $("#enviarCamaNueva").click(function () {
         var noCama = $("#nocama").val();
-        var tipo = $("#tipotipocama").val();
+        var tipo = $("#tipocama").val();
+
+        var tipoCama:string;
+        console.log(tipo);
+        if(tipo=="Normal"){
+          console.log("toy normal");
+          tipoCama="Normal";
+        }
+        if(tipo=="UCI"){
+          console.log("toy uci");
+          tipoCama="UCI";
+        }
+
         var noSalon = $("#nosalon").val();
         var disponilidad = $("#disponible").val();
-        alert("Cama nueva");
-        camaService.sendData(noCama, tipo, noSalon, disponilidad);
+        var disponible:boolean;
+        console.log(disponilidad);
+        if(disponilidad=="Si"){
+          console.log("toy free");
+          disponible=true;
+        }
+        if(disponilidad=="No"){
+          console.log("no toy free");
+          disponible=false;
+        }
+        camaService.sendData(noCama, tipoCama, noSalon, disponible);
       });
     })
 
-    /** Proyecto 2 Bases de Datos: Hospital TECNológico
-        Vista de gestion de camas.
-        Objetivo: Llamar la funcion que envia la llave primaria al api de la entidad
-        que queremos eliminar.
-        Autor-Autora: Tatiana.
-        Entradas:llavePrimaria */
-    $(document).ready(function () {
-      $("#eliminarCama").click(function () {
-        var $row = $(this).closest("tr");    // Find the row
-        console.log(llavePrimaria);
-        camaService.delete(llavePrimaria);
-      });
-    })
+   //******************************************************************************************** */
 
     $(document).ready(function() {
       $(".editTable").on('click',function() {
         var $row = $(this).closest("tr");    // Find the row
-        var primaryKey = $row.find("td:eq(0)").text(); // Find the text
-        var col2=$row.find("td:eq(1)").text();
-        llavePrimaria=primaryKey;
-        $("#nocama").val(primaryKey);
-        $("#recuperacionModificado").val(col2);
+        var noCama = $row.find("td:eq(0)").text(); // Find the text
+        var tipo=$row.find("td:eq(1)").text();
+        var noSalon=$row.find("td:eq(2)").text();
+        var disponibilidad=$row.find("td:eq(3)").text();
+        llavePrimaria=noCama;
+        console.log(noCama);
+        $("#nocamaModif").val(noCama);
+        $("#tipocamaModif").val(tipo);
+        $("#nosalonModif").val(noSalon);
+        $("#disponibleModif").val(disponibilidad );
 
+      });
+    })
+    
+    /** Proyecto 2 Bases de Datos: Hospital TECNológico
+        Vista de gestion de camas.
+        Objetivo: Modificar una cama
+        Autor-Autora: Tatiana.
+        Entradas:noCama, tipo, noSalon, disponilidad 
+     */
+    $(document).ready(function () {
+      $("#sendModifiedBed").click(function () {
+        var noCama = $("#nocamaModif").val();
+        var tipo = $("#tipocamaModif").val();
+        
+        var tipoCama:string;
+        console.log(tipo);
+        if(tipo=="Normal"){
+          tipoCama="Normal";
+        }
+        if(tipo=="UCI"){
+          tipoCama="UCI";
+        }
+
+        var noSalon = $("#nosalonModif").val();
+
+        var disponilidad = $("#disponibleModif").val();
+        var disponible:boolean;
+        console.log(disponilidad);
+        if(disponilidad=="Si"){
+          disponible=true;
+        }
+        if(disponilidad=="No"){
+          disponible=false;
+        }
+        camaService.modificar(llavePrimaria,noCama, tipoCama, noSalon, disponible);
       });
     })
     
@@ -98,5 +134,22 @@ export class CamaComponent implements OnInit {
         llavePrimaria = $row.find("td:eq(0)").text(); // Find the text  
       });
     })
+
+    /** Proyecto 2 Bases de Datos: Hospital TECNológico
+      Vista de gestion de camas.
+      Objetivo: Llamar la funcion que envia la llave primaria al api de la entidad
+      que queremos eliminar.
+      Autor-Autora: Tatiana.
+      Entradas:llavePrimaria */
+      $(document).ready(function () {
+        $("#sendDeletedBed").click(function () {
+          var $row = $(this).closest("tr");    // Find the row
+          console.log(llavePrimaria);
+          camaService.delete(llavePrimaria);
+        });
+      })
+
+      
   }
+
 }
