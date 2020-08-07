@@ -7,7 +7,7 @@ import { first } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthServiceService {
+export class AuthService {
 
   public user:User;
   constructor(public afAuth: AngularFireAuth) {

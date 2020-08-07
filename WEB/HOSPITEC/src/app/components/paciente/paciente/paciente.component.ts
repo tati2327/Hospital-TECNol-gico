@@ -3,24 +3,25 @@ import { PacienteService } from 'src/app/services/paciente/paciente.service';
 import { Paciente } from 'src/app/models/paciente/paciente';
 import { PacienteSqlService } from 'src/app/services/paciente/pacientesql.service';
 import { PacienteSql } from 'src/app/models/paciente/pacientesql';
-
+import {AuthService} from 'src/app/services/auth.service';
 import { of } from 'rxjs';
 declare var $: any;
 
 @Component({
   selector: 'app-paciente',
   templateUrl: './paciente.component.html',
-  styleUrls: ['./paciente.component.css']
+  styleUrls: ['./paciente.component.css'],
+  providers: [AuthService]
 })
 export class PacienteComponent implements OnInit {
 
-  constructor(public pacienteService: PacienteService, public pacientesql: PacienteSqlService) { }
+  constructor(public pacienteService: PacienteService, public pacientesql: PacienteSqlService, private authSvc: AuthService) { }
   patientsList: Paciente[] = []
   patientsql: PacienteSql[] = []
   ngOnInit(): void {
 
 
-
+    var firebase = this.authSvc;
     var init = this.pacienteService;
     var init2 = this.pacientesql;
 
@@ -91,6 +92,8 @@ export class PacienteComponent implements OnInit {
         var int = $("#internado").val();
         var med = $("#medicacion").val();
         var uci = $("#uci").val();
+        console.log(email,cont);
+        firebase.register(email,cont); // FIREBASE
         return init.sendData(ced, nom, ape, fecha, tel, dir, trat, pat, "", est, cont), init2.sendData(ced, nom, ape, fecha, dir, nac, est, email, int, pat, med, uci);
       });
     })

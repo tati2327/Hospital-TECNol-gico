@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { AngularFireModule } from  '@angular/fire';
+import {AngularFireAuthModule} from '@angular/fire/auth';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SalonComponent } from './components/adminView/salon/salon.component';
@@ -30,7 +31,7 @@ import { ModificarDoctorComponent } from './components/doctor/gestion-paciente/m
 import { CamaComponent } from './components/adminView/cama/cama.component';
 import { ModificarCamaComponent } from './components/adminView/cama/modificar-cama/modificar-cama.component';
 import { LoginComponent } from './components/login/login.component';
-
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,9 @@ import { LoginComponent } from './components/login/login.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
