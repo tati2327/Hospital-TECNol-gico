@@ -9,14 +9,17 @@ import { first } from 'rxjs/operators';
 })
 export class AuthService {
 
+  position:string;
   public user:User;
   constructor(public afAuth: AngularFireAuth) {
 
    }
 
-  async login(email:string, password:string){
+  async login(email:string, password:string, position:string){
     try{
       const result = await this.afAuth.signInWithEmailAndPassword(email,password);
+      console.log("SUCCESS");
+      this.position=position;
       return result;
     }
     catch(error){
@@ -42,5 +45,9 @@ export class AuthService {
 
   getCurrentUser(){
     return this.afAuth.authState.pipe(first()).toPromise();
+  }
+
+  getPosition(){
+    return this.position;
   }
 }

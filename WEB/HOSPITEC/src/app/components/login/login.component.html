@@ -5,20 +5,24 @@
       <div class="mystyle" >
         <div class="col-md-auto">
           <h3>Inicio de sesión</h3>
-          <form>
+          <form [formGroup]='loginForm' (ngSubmit)="login()">
             <div class="form-group col-md-03">
               <div class="form-group col-md-auto">
-                <label for="mail">Cédula</label>
-                <input type="mail" class="form-control" #mail>
+                <label for="mail">Mail</label>
+                <input type="mail" class="form-control" #mail formControlName="email">
               </div>
               <div class="form-group col-md-auto">
                 <label for="contra">Contraseña</label>
-                <input type="password" class="form-control" #contra>
+                <input type="password" class="form-control" #contra  formControlName="password">
               </div>
+
+
+              <input type="radio" name="same" value="personal" ng-model="puesto"> Paciente
+              <input type="radio" name="same" value="paciente"  ng-model="puesto"> Personal
             </div>
 
             <div class="form-group col-md-auto">
-              <button type="button" class="btn btn-dark btn-primary-spacing" btn-sm #log (click)="login()"> Ingresar</button>
+              <button type="submit" class="btn btn-dark btn-primary-spacing" btn-sm #log (click)="login()"> Ingresar</button>
             </div>
 
           </form>
