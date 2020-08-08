@@ -11,7 +11,7 @@ export class PacienteSqlService {
   constructor(private http: HttpClient) { }
 
   getPacientes(): Observable<PacienteSql[]> {
-    return this.http.get<PacienteSql[]>('https://localhost:44354/api/pacientes');
+    return this.http.get<PacienteSql[]>('https://localhost:44354/api/pacienteCotecs');
 
   }
 

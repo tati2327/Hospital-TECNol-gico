@@ -6,11 +6,9 @@
     "\\WEB\\HOSPITEC\\src",
     "\\WEB\\HOSPITEC\\src\\app",
     "\\WEB\\HOSPITEC\\src\\app\\components",
-    "\\WEB\\HOSPITEC\\src\\app\\components\\doctor",
     "\\WEB\\HOSPITEC\\src\\app\\components\\paciente",
-    "\\WEB\\HOSPITEC\\src\\app\\services",
-    "\\WEB\\HOSPITEC\\src\\app\\services\\paciente"
+    "\\WEB\\HOSPITEC\\src\\app\\components\\paciente\\historial-clinico"
   ],
-  "SelectedNode": "\\WEB\\HOSPITEC\\src\\app\\components\\paciente\\reservacion",
+  "SelectedNode": "\\WEB\\HOSPITEC\\src\\app\\components\\paciente\\historial-clinico\\historial-clinico.component.html",
   "PreviewInSolutionExplorer": false
 }

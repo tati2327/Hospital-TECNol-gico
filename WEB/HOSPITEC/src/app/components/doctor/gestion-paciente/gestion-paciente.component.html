@@ -65,14 +65,23 @@
 
             <tr *ngFor="let item of patientsList">
 
-        <td>{{ item.cedula }}</td>
+              <td>{{ item.cedula }}</td>
               <td>{{ item.nombre }}</td>
               <td>{{ item.apellidos }}</td>
               <td>{{ item.estado }}</td>
-              <td><a  data-toggle="modal" href="#" id="getModifyData" data-target="#edit" class="editTable">Editar</a>
-              <a  data-toggle="modal" href="#" id="getDeleteData" data-target="#delete" >Eliminar</a>
-            </td>
-          </tr>
+              <td>
+                <a data-toggle="modal" href="#" id="getModifyData" data-target="#edit" class="editTable">Editar</a>
+                <a data-toggle="modal" href="#" id="getDeleteData" data-target="#delete">Eliminar</a>
+              </td>
+            </tr>
+            <tr *ngFor="let item of patientsqlList">
+
+              <td>{{ item.numIdentificacion }}</td>
+              <td>{{ item.nombrePaciente }}</td>
+              <td>{{ item.apellidos }}</td>
+              <td>{{ item.estado }}</td>
+              
+            </tr>
           </tbody>
         </table>
         </div>

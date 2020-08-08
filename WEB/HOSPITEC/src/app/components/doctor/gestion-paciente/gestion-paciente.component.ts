@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PacienteService } from 'src/app/services/paciente/paciente.service';
 import { Paciente } from 'src/app/models/paciente/paciente';
+import { PacienteSqlService } from 'src/app/services/paciente/pacientesql.service';
+import { PacienteSql } from 'src/app/models/paciente/pacientesql';
 
 import { of } from 'rxjs';
 declare var $: any;
@@ -13,7 +15,8 @@ declare var $: any;
 export class GestionPacienteComponent implements OnInit {
 
   patientsList: Paciente[] = [];
-  constructor(public pacienteService: PacienteService) { }
+  patientsqlList: PacienteSql[] = [];
+  constructor(public pacienteService: PacienteService, public pacientesql: PacienteSqlService,) { }
 
   ngOnInit(): void {
 
@@ -21,6 +24,9 @@ export class GestionPacienteComponent implements OnInit {
 
     this.pacienteService.getPacientes().subscribe((pacientes) => {
       this.patientsList = pacientes;
+    })
+    this.pacientesql.getPacientes().subscribe((pac) => {
+      this.patientsqlList = pac;
     })
 
 
