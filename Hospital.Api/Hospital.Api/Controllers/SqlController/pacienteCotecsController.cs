@@ -26,7 +26,7 @@ namespace Hospital.Api.Controllers.SqlController
         public async Task<ActionResult<IEnumerable<pacienteCotec>>> GetpacienteCotec()
         {
             return await _context.pacienteCotec
-                                      .Where(x => x.nacionalidad == "Costa Rica")
+                                      .Where(x => x.nacionalidad == "Costarricense")
                                       .ToListAsync();
         }
 
@@ -35,7 +35,7 @@ namespace Hospital.Api.Controllers.SqlController
         public async Task<ActionResult<IEnumerable<pacienteCotec>>> GetpacientePais()
         {
             return await _context.pacienteCotec
-                                      .Where(x => x.nacionalidad == "Costa Rica")
+                                      .Where(x => x.nacionalidad == "Costarricense")
                                       .ToListAsync();
         }
 

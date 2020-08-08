@@ -26,7 +26,7 @@ namespace Hospital.Api
         }
         private void InitializeStorage(IServiceCollection services)
         {
-            string connectionString = "Server=hospitaldbserver-dev.postgres.database.azure.com;Database=postgres;Port=5432;User Id=Pablo@hospitaldbserver-dev;Password=ABcd123!;Ssl Mode=Require;";
+            string connectionString = Configuration.GetConnectionString("DefaultConnection");
             services.AddCors(c =>
             {
                 c.AddPolicy("AllowOrigin", builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
